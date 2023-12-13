@@ -1,0 +1,7 @@
+**/saved_models/
+**/fine-tuned/
+/llama2/llama-2-*
+/llama2/llama/
+/llama2/llama2-huggingface/
+dump
+**/.env
