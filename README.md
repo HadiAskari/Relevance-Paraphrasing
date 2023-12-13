@@ -11,7 +11,7 @@ pip install -r requirements.txt
 Generate Paraphrased Articles via running the following command in the llama2 directory. See Llama section for model downloading details.
 
 ```
-python create_paraphrase.py
+torchrun --nproc_per_node 2  --nproc_per_node 2 create_paraphrase.py \ --ckpt_dir llama-2-13b-chat/ \ --tokenizer_path tokenizer.model \ --max_seq_len 2000 --max_batch_size 4
 
 ```
 
