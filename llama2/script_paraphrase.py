@@ -28,8 +28,8 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataset', type=str, default="cnn", help="cnn/xsum/reddit/news")
     #parser.add_argument('--seed', type=int, default=42, help="seed for experiments")
-    parser.add_argument('--device', type=int, default=0, help="Choose which GPU to run.")
-    parser.add_argument('--batch_size', type=int, default=8, help="batch size.")
+    # parser.add_argument('--device', type=int, default=0, help="Choose which GPU to run.")
+    # parser.add_argument('--batch_size', type=int, default=8, help="batch size.")
     args = parser.parse_args()
     return args
 
