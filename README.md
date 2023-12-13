@@ -1,4 +1,4 @@
-# Paraphrasing-Bias
+# Relevance-Paraphrasing
 
 ## Environment
 
