@@ -36,7 +36,7 @@ article_key = 'article'
 summary_key = 'highlights'
 data=data['test']
 
-data=data.select(range(10))
+#data=data.select(range(10))
 
 # template for an instruction with input
 prompt_with_context = PromptTemplate(
@@ -54,7 +54,7 @@ for article in tqdm(data[article_key]):
 
     cnn.append(llm_context_chain.predict(instruction="User: From now on you are an expert summarizer of articles that will help me generate summaries. Assistant: Sure! I can help you in generating summaries for articles. Please go ahead and send me the article. User: Generate a 3 sentence summary for the given article.", context=context).lstrip())
 
-with open('data/cnn-roleplay.pkl', 'wb') as f:
+with open('data/cnn.pkl', 'wb') as f:
     pkl.dump(cnn,f)
 
 
@@ -63,7 +63,7 @@ article_key = 'document'
 summary_key = 'summary'
 data=data['test']
 
-data=data.select(range(10))
+#data=data.select(range(10))
 
 # template for an instruction with input
 prompt_with_context = PromptTemplate(
@@ -75,7 +75,7 @@ hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-collected=os.listdir('data/xsum_roleplay')
+collected=os.listdir('data/xsum')
 count=0
 
 for article in tqdm(data[article_key]):
@@ -87,13 +87,13 @@ for article in tqdm(data[article_key]):
         continue
     
     elif count==8018:
-        with open('data/xsum_roleplay/{}.pkl'.format(count), 'wb') as f:
+        with open('data/xsum/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(xsum,f)
         count+=1
     
     else:    
         xsum.append(llm_context_chain.predict(instruction="User: From now on you are an expert summarizer of articles that will help me generate summaries. Assistant: Sure! I can help you in generating summaries for articles. Please go ahead and send me the article. User: Generate a 1 sentence summary for the given article.", context=context).lstrip())
-        with open('data/xsum_roleplay/{}.pkl'.format(count), 'wb') as f:
+        with open('data/xsum/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(xsum,f)
         count+=1
 
@@ -107,7 +107,7 @@ data = DatasetDict({
     'test': data['train']})
 
 data=data['test']
-data=data.select(range(10))
+#data=data.select(range(10))
 # template for an instruction with input
 prompt_with_context = PromptTemplate(
     input_variables=["instruction", "context"],
@@ -124,7 +124,7 @@ for article in tqdm(data[article_key]):
 
     news.append(llm_context_chain.predict(instruction="User: From now on you are an expert summarizer of articles that will help me generate summaries. Assistant: Sure! I can help you in generating summaries for articles. Please go ahead and send me the article. User: Generate a 1 sentence summary for the given article.", context=context).lstrip())
 
-with open('data/news_roleplay.pkl', 'wb') as f:
+with open('data/news.pkl', 'wb') as f:
     pkl.dump(news,f)
 
 
@@ -143,7 +143,7 @@ data = DatasetDict({
     'validation': test_valid['train']})
 
 data=data['test']
-data=data.select(range(10))
+#data=data.select(range(10))
 # template for an instruction with input
 prompt_with_context = PromptTemplate(
     input_variables=["instruction", "context"],
@@ -160,5 +160,5 @@ for article in tqdm(data[article_key]):
 
     reddit.append(llm_context_chain.predict(instruction="User: From now on you are an expert summarizer of articles that will help me generate summaries. Assistant: Sure! I can help you in generating summaries for articles. Please go ahead and send me the article. User: Generate a 1 sentence summary for the given article.", context=context).lstrip())
 
-with open('data/reddit_roleplay.pkl', 'wb') as f:
+with open('data/reddit.pkl', 'wb') as f:
     pkl.dump(reddit,f)
