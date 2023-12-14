@@ -85,7 +85,7 @@ python script_paraphrased.py --dataset dataset_name
 Replace dataset_name with either cnn, xsum, news, reddit 
 
 
-### Llama2-13b-chat
+### Llama-2-13b-chat
 
 You will need to download and copy the Llama folder from meta with the weights to the directory first.
 Inference can be done by running the files inference_original.py and inference_paraphrase.py with the following commands.
@@ -150,9 +150,19 @@ python script_original.py --dataset dataset_name
 ```
 Replace dataset_name with either cnn, xsum, news, reddit
 
-
 ```
 python script_paraphrased.py --dataset dataset_name 
 
 ```
 Replace dataset_name with either cnn, xsum, news, reddit 
+
+
+## Accessing our articles and summaries
+
+### Paraphrased Articles
+
+The Llama-2 paraphrased articles can be found in the folder "paraphrased_articles". Each individual paraphrased article pickle file is in the subdirectory of its respective dataset. 
+
+### Original and Paraphrased Summaries
+
+These can be found in the subdirectories "data_original" and "data_paraphrased" inside the directory of each large language model. 
