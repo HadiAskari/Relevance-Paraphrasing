@@ -1,12 +1,15 @@
 # Relevance-Paraphrasing
 
-## Environment
+### Environment
 
 ```
 pip install -r requirements.txt
 
 ```
-## Paraphrasing Articles
+
+## Generation Pipeline
+
+### Paraphrasing Articles
 
 Generate Paraphrased Articles via running the following command in the llama2 directory. See Llama section for model downloading details.
 
@@ -15,7 +18,7 @@ torchrun --nproc_per_node 2  --nproc_per_node 2 create_paraphrase.py \ --ckpt_di
 
 ```
 
-## Dolly-v2-7b
+### Dolly-v2-7b
 
 Generate Original Summaries with the command
 
@@ -50,7 +53,7 @@ Replace dataset_name with either cnn, xsum, news, reddit
 
 
 
-## ChatGPT 3.5-T
+### ChatGPT 3.5-T
 
 Inference the LLM with running inference.ipynb for original summaries
 
@@ -82,7 +85,7 @@ python script_paraphrased.py --dataset dataset_name
 Replace dataset_name with either cnn, xsum, news, reddit 
 
 
-## Llama-13b-chat
+### Llama-2-13b-chat
 
 You will need to download and copy the Llama folder from meta with the weights to the directory first.
 Inference can be done by running the files inference_original.py and inference_paraphrase.py with the following commands.
@@ -121,7 +124,7 @@ python script_paraphrased.py --dataset dataset_name
 ```
 Replace dataset_name with either cnn, xsum, news, reddit 
 
-## Mistral-7B
+### Mistral-7B
 
 Generate Original Summaries with the command
 
@@ -147,9 +150,19 @@ python script_original.py --dataset dataset_name
 ```
 Replace dataset_name with either cnn, xsum, news, reddit
 
-
 ```
 python script_paraphrased.py --dataset dataset_name 
 
 ```
 Replace dataset_name with either cnn, xsum, news, reddit 
+
+
+## Accessing our articles and summaries
+
+### Paraphrased Articles
+
+The Llama-2 paraphrased articles can be found in the folder "paraphrased_articles". Each individual paraphrased article pickle file is in the subdirectory of its respective dataset. 
+
+### Original and Paraphrased Summaries
+
+These can be found in the subdirectories "data_original" and "data_paraphrased" inside the directory of each large language model. 
