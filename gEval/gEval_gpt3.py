@@ -1,6 +1,7 @@
 import datasets
 from openai import OpenAI
 from tqdm.auto import tqdm
+from natsort import natsorted
 import random
 import pickle
 import os
@@ -44,12 +45,13 @@ def read_paraphrased_summaries(path):
     """
 
     out = []
-    for filename in os.listdir(path):
+    files = natsorted(os.listdir(path))
+    for filename in files:
         if filename.endswith(".pkl"):
             filepath = os.path.join(path, filename)
             with open(filepath, 'rb') as f:
                 file_content = pickle.load(f)
-                out.append(file_content)
+                out.append(file_content[0])
     return out
 
 
@@ -99,13 +101,13 @@ def ratePromptGood(article, summary):
     return prompt
 
 ## Create Prompts
-def createPrompts(ds, ds_key, sum_para):
+def createPrompts(ds, ds_key, sum_orig, sum_para):
     articleKey = ds_keys[ds_key][0]
     summaryKey = ds_keys[ds_key][1]
     # Only select 10% of the articles to rate
     random.seed(42)
     list_size = len(ds)
-    num_true = int(list_size * 0.1)
+    num_true = int(list_size * 0.115)
     skip = [False] * num_true + [True] * (list_size - num_true)
     random.shuffle(skip)
 
@@ -114,10 +116,16 @@ def createPrompts(ds, ds_key, sum_para):
     for i in range(len(ds)):
         if skip[i]:
             continue
+
+        if (sum_para[i].strip() == '') or (sum_orig[i].strip() == ''):
+            continue
+
         idx.append(str(i))
         article = ds[i][articleKey]
         summary = ds[i][summaryKey]
         prompt = ratePromptGood(article, summary)
+        prompts.append(prompt)
+        prompt = ratePromptGood(article, sum_orig[i])
         prompts.append(prompt)
         prompt = ratePromptGood(article, sum_para[i])
         prompts.append(prompt)
@@ -125,25 +133,25 @@ def createPrompts(ds, ds_key, sum_para):
     return idx, prompts
 
 
-cnn_idx, cnn_prompts = createPrompts(cnn_ds, 'cnn_ds', cnn_sum_para)
+cnn_idx, cnn_prompts = createPrompts(cnn_ds, 'cnn_ds', cnn_sum_orig, cnn_sum_para)
 with open('cnn_idx.txt', 'w') as f:
     f.write('\n'.join(cnn_idx))
 
-xsum_idx, xsum_prompts = createPrompts(xsum_ds, 'xsum_ds', xsum_sum_para)
+xsum_idx, xsum_prompts = createPrompts(xsum_ds, 'xsum_ds', xsum_sum_orig, xsum_sum_para)
 with open('xsum_idx.txt', 'w') as f:
     f.write('\n'.join(xsum_idx))
 
-news_idx, news_prompts = createPrompts(news_ds, 'news_ds', news_sum_para)
+news_idx, news_prompts = createPrompts(news_ds, 'news_ds', news_sum_orig, news_sum_para)
 with open('news_idx.txt', 'w') as f:
     f.write('\n'.join(news_idx))
 
-reddit_idx, reddit_prompts = createPrompts(reddit_ds, 'reddit_ds', reddit_sum_para)
+reddit_idx, reddit_prompts = createPrompts(reddit_ds, 'reddit_ds', reddit_sum_orig, reddit_sum_para)
 with open('reddit_idx.txt', 'w') as f:
     f.write('\n'.join(reddit_idx))
 
 
 ## Create ChatGPT client
-def ask_chatgpt(prompts, outFilePath):
+def ask_chatgpt(idx, prompts, outFilePath):
     """Queries ChatGPT-3.5-turbo with a list of prompts and returns the responses.
 
     Args:
@@ -155,7 +163,8 @@ def ask_chatgpt(prompts, outFilePath):
         api_key="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"
     )
 
-    for prompt in tqdm(prompts):
+    for i in tqdm(range(len(prompts))):
+        prompt = prompts[i]
         ans = client.chat.completions.create(
             messages=[
                 {
@@ -167,11 +176,12 @@ def ask_chatgpt(prompts, outFilePath):
             temperature=0,
         )
         ans = ans.choices[0].message.content
+        ans = str(idx[int(i/3)]) + '\t' + ans
 
         with open(outFilePath, 'a') as f:
             f.write(ans+'\n')
 
-ask_chatgpt(cnn_prompts, 'cnn_responses.txt')
-ask_chatgpt(xsum_prompts, 'xsum_responses.txt')
-ask_chatgpt(news_prompts, 'news_responses.txt')
-ask_chatgpt(reddit_prompts, 'reddit_responses.txt')
+ask_chatgpt(cnn_idx, cnn_prompts, 'cnn_responses.txt')
+ask_chatgpt(xsum_idx, xsum_prompts, 'xsum_responses.txt')
+ask_chatgpt(news_idx, news_prompts, 'news_responses.txt')
+ask_chatgpt(reddit_idx, reddit_prompts, 'reddit_responses.txt')
