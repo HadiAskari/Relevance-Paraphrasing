@@ -238,15 +238,37 @@ if __name__ == "__main__":
 
 
     
-    # dataset = load_dataset("cnn_dailymail", '3.0.0')
-    # article_key = 'article'
-    # summary_key = 'highlights'
-    # name='cnn_dailymail'
-    # dataset=dataset['test']
+    dataset = load_dataset("cnn_dailymail", '3.0.0')
+    article_key = 'article'
+    summary_key = 'highlights'
+    name='cnn_dailymail'
+    dataset=dataset['test']
     
-    # # dataset=dataset.select(range(10))
+    dataset=dataset.select(range(100))
 
-    # name='cnn'
+    name='cnn'
+    
+    dataset_original = dataset.map(tokenize, num_proc=multiprocessing.cpu_count())
+    dataset_original_articles=dataset_original["tokenized_document"]
+    
+    
+    paraphrased_articles=[]
+    for i in tqdm(range(len(dataset))):
+        with open('../../paraphrased_articles/{}/{}.pkl'.format('cnn',i), 'rb') as f:
+            untokenized_article=pkl.load(f)
+            paraphrased_articles.append(" ".join(untokenized_article))
+    
+    dataset = dataset.remove_columns(article_key)
+    dataset = dataset.add_column(article_key, paraphrased_articles)
+    
+    dataset=dataset.select(range(100))
+    
+    dataset_paraphrased = dataset.map(tokenize, num_proc=multiprocessing.cpu_count())
+    dataset_paraphrased_articles=dataset_original["tokenized_document"]
+    
+    # print(dataset_original_articles)
+    # print(dataset_paraphrased_articles)
+    
 
     # #call(generator,title,max_gen_len,temperature,top_p)
     # original_sentences = get_original_sentences(dataset, name)
@@ -254,8 +276,8 @@ if __name__ == "__main__":
     
     # paraphrased_sentences = get_paraphrased_sentences(dataset, name)
     
-    # # print(len(original_sentences_cnn))
-    # # print(len(paraphrased_sentences_cnn))
+    # print(len(original_sentences_cnn))
+    # print(len(paraphrased_sentences_cnn))
     
     # original_sentences_final=[]
     # paraphrased_sentences_final=[]
@@ -269,12 +291,12 @@ if __name__ == "__main__":
     #         #print('empty')
     #         pass
     
-    # # print(len(original_sentences_cnn_final))
-    # # print(len(paraphrased_sentences_cnn_final))
+    # print(len(original_sentences_cnn_final))
+    # print(len(paraphrased_sentences_cnn_final))
     
     
-    # # original_sentences_cnn_final[0:20]
-    # # paraphrased_sentences_cnn_final[0:20]
+    # original_sentences_cnn_final[0:20]
+    # paraphrased_sentences_cnn_final[0:20]
     
     # highlights = []
     # model_s = []
@@ -290,9 +312,9 @@ if __name__ == "__main__":
 
     # #print("==> Comparing generated summaries with gold summaries")
     # results = rouge.compute(predictions=model_s, references=highlights)
-    # #print(results)
-    # print("bertscore")
-    # print(get_bertscore(original_sentences_final,paraphrased_sentences_final))
+    #print(results)
+    print("bertscore")
+    print(get_bertscore(dataset_original_articles,dataset_paraphrased_articles))
     
     
     
@@ -417,67 +439,67 @@ if __name__ == "__main__":
     # print(get_bertscore(original_sentences_final,paraphrased_sentences_final))
     
 
-    dataset = load_dataset('reddit_tifu', 'long')
-    article_key = 'documents'
-    summary_key = 'tldr'
-    # 80% train, 20% test + validation
-    train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
-    # Split the 20% test + valid in half test, half valid
-    test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
-    # gather everyone if you want to have a single DatasetDict
-    dataset = DatasetDict({
-        'train': train_testvalid['train'],
-        'test': test_valid['test'],
-        'validation': test_valid['train']})
+    # dataset = load_dataset('reddit_tifu', 'long')
+    # article_key = 'documents'
+    # summary_key = 'tldr'
+    # # 80% train, 20% test + validation
+    # train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
+    # # Split the 20% test + valid in half test, half valid
+    # test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
+    # # gather everyone if you want to have a single DatasetDict
+    # dataset = DatasetDict({
+    #     'train': train_testvalid['train'],
+    #     'test': test_valid['test'],
+    #     'validation': test_valid['train']})
 
-    dataset=dataset['test']
-    name='reddit'
+    # dataset=dataset['test']
+    # name='reddit'
     
-        #call(generator,title,max_gen_len,temperature,top_p)
-    original_sentences = get_original_sentences(dataset, name)
-    # Save data
+    #     #call(generator,title,max_gen_len,temperature,top_p)
+    # original_sentences = get_original_sentences(dataset, name)
+    # # Save data
     
-    paraphrased_sentences = get_paraphrased_sentences(dataset, name)
+    # paraphrased_sentences = get_paraphrased_sentences(dataset, name)
     
-    # print(len(original_sentences_cnn))
-    # print(len(paraphrased_sentences_cnn))
+    # # print(len(original_sentences_cnn))
+    # # print(len(paraphrased_sentences_cnn))
     
-    original_sentences_final=[]
-    paraphrased_sentences_final=[]
+    # original_sentences_final=[]
+    # paraphrased_sentences_final=[]
     
-    for orig, para in zip(original_sentences,paraphrased_sentences):
-        if para:
-            original_sentences_final.append(orig)
-            paraphrased_sentences_final.append(para)
-        else:
-            # print(para)
-            # print('empty')
-            pass
+    # for orig, para in zip(original_sentences,paraphrased_sentences):
+    #     if para:
+    #         original_sentences_final.append(orig)
+    #         paraphrased_sentences_final.append(para)
+    #     else:
+    #         # print(para)
+    #         # print('empty')
+    #         pass
     
-    # print(len(original_sentences_cnn_final))
-    # print(len(paraphrased_sentences_cnn_final))
+    # # print(len(original_sentences_cnn_final))
+    # # print(len(paraphrased_sentences_cnn_final))
     
     
-    # original_sentences_cnn_final[0:20]
-    # paraphrased_sentences_cnn_final[0:20]
+    # # original_sentences_cnn_final[0:20]
+    # # paraphrased_sentences_cnn_final[0:20]
     
-    highlights = []
-    model_s = []
+    # highlights = []
+    # model_s = []
     
-    for j in original_sentences_final:
-        highlights.append(' '.join(j))
+    # for j in original_sentences_final:
+    #     highlights.append(' '.join(j))
 
-    for k in paraphrased_sentences_final:
-        model_s.append(' '.join(k))
+    # for k in paraphrased_sentences_final:
+    #     model_s.append(' '.join(k))
 
 
-    rouge = evaluate.load('rouge')
+    # rouge = evaluate.load('rouge')
 
-    #print("==> Comparing generated summaries with gold summaries")
-    results = rouge.compute(predictions=model_s, references=highlights)
-    #print(results)
-    print("bertscore")
-    print(get_bertscore(original_sentences_final,paraphrased_sentences_final))
+    # #print("==> Comparing generated summaries with gold summaries")
+    # results = rouge.compute(predictions=model_s, references=highlights)
+    # #print(results)
+    # print("bertscore")
+    # print(get_bertscore(original_sentences_final,paraphrased_sentences_final))
 
     # dataset=dataset.select(range(10))
     
