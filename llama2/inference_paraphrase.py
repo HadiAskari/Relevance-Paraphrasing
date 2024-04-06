@@ -112,9 +112,9 @@ def call(generator, articles, name, max_gen_len,temperature,top_p):
 def main(
     ckpt_dir: str,
     tokenizer_path: str,
-    temperature: float = 0.7,
+    temperature: float = 0,
     top_p: float = 0.9,
-    max_seq_len: int = 8000,
+    max_seq_len: int = 4096,
     max_batch_size: int = 2,
     max_gen_len: Optional[int] = None,
 ):
@@ -146,11 +146,22 @@ def main(
     data=dataset['test']
     data = data.remove_columns(article_key).add_column(article_key, pkls_list).cast(data.features)
     #data[article_key]=pkls_list
-    print(data)
+    # print(data)
 
     #dataset=dataset.select(range(10))
     
-    collected=os.listdir('data_paraphrase/cnn')
+    #For 10% sample
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
+
+
+    data=data.select(random_indices)
+    
+    collected=os.listdir('temp0/data_paraphrase/cnn')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -162,7 +173,7 @@ def main(
             continue
         
         elif article==' ':
-            with open('data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -170,12 +181,12 @@ def main(
         else:    
             try:    
                 cnn.append(call(generator,article, name,max_gen_len,temperature,top_p))
-                with open('data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
+                with open('temp0/data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(cnn,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
+                    with open('temp0/data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
             
             
@@ -212,9 +223,19 @@ def main(
 
     #dataset=dataset.select(range(10))
     name='xsum'
+    
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
 
 
-    collected=os.listdir('data_paraphrase/xsum')
+    data=data.select(random_indices)
+
+
+    collected=os.listdir('temp0/data_paraphrase/xsum')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -226,13 +247,13 @@ def main(
             continue
         
         elif article==' ':
-            with open('data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
         
         elif count==8018:
-            with open('data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([' '],f)
             count+=1
             continue
@@ -241,12 +262,12 @@ def main(
         else:
             try:    
                 xsum.append(call(generator,article, name,max_gen_len,temperature,top_p))
-                with open('data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
+                with open('temp0/data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(xsum,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
+                    with open('temp0/data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
             
             
@@ -267,9 +288,7 @@ def main(
             file.append(' ') #no paraphrasing possible
         pkls_list.extend(file)
 
-    # print(count)
-    # print(len(pkls_list))
-    # print(pkls_list[0])
+
     
     
     article_key = 'text'
@@ -284,10 +303,20 @@ def main(
     
     #dataset=dataset.select(range(10))
     name='argilla/news-summary'
+    
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
 
 
+    data=data.select(random_indices)
+    
 
-    collected=os.listdir('data_paraphrase/news')
+
+    collected=os.listdir('temp0/data_paraphrase/news')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -299,7 +328,7 @@ def main(
             continue
         
         elif article==' ':
-            with open('data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -308,12 +337,12 @@ def main(
         else:    
             try:    
                 news.append(call(generator,article, name,max_gen_len,temperature,top_p))
-                with open('data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
+                with open('temp0/data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(news,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
+                    with open('temp0/data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
             
             
@@ -336,9 +365,7 @@ def main(
             file.append(' ') #no paraphrasing possible
         pkls_list.extend(file)
 
-    # print(count)
-    # print(len(pkls_list))
-    # print(pkls_list[0])
+
     
     
     article_key = 'documents'
@@ -359,8 +386,18 @@ def main(
     #data[article_key]=pkls_list
     #dataset=dataset.select(range(10))
     name='reddit_tifu'
+    
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
 
-    collected=os.listdir('data_paraphrase/reddit')
+
+    data=data.select(random_indices)
+
+    collected=os.listdir('temp0/data_paraphrase/reddit')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -372,7 +409,7 @@ def main(
             continue
         
         elif article==' ':
-            with open('data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -380,12 +417,12 @@ def main(
         else:
             try:    
                 reddit.append(call(generator,article, name,max_gen_len,temperature,top_p))
-                with open('data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
+                with open('temp0/data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(reddit,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
+                    with open('temp0/data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
                  
                 

@@ -135,21 +135,29 @@ def createPrompts(ds, ds_key, sum_orig, sum_para):
 
 
 cnn_idx, cnn_prompts = createPrompts(cnn_ds, 'cnn_ds', cnn_sum_orig, cnn_sum_para)
+# print(cnn_prompts[0:3])
 with open('gpt_cnn_idx.txt', 'w') as f:
     f.write('\n'.join(cnn_idx))
-
+with open('gpt_cnn_prompts.txt', 'w') as f:
+    f.write('\n'.join(cnn_prompts))
 xsum_idx, xsum_prompts = createPrompts(xsum_ds, 'xsum_ds', xsum_sum_orig, xsum_sum_para)
 with open('gpt_xsum_idx.txt', 'w') as f:
     f.write('\n'.join(xsum_idx))
-
+with open('gpt_xsum_prompts.txt', 'w') as f:
+    f.write('\n'.join(xsum_prompts))
+# print(xsum_prompts[0:3])
 news_idx, news_prompts = createPrompts(news_ds, 'news_ds', news_sum_orig, news_sum_para)
 with open('gpt_news_idx.txt', 'w') as f:
     f.write('\n'.join(news_idx))
-
+with open('gpt_news_prompts.txt', 'w') as f:
+    f.write('\n'.join(news_prompts))
+# print(news_prompts[0:3])
 reddit_idx, reddit_prompts = createPrompts(reddit_ds, 'reddit_ds', reddit_sum_orig, reddit_sum_para)
 with open('gpt_reddit_idx.txt', 'w') as f:
     f.write('\n'.join(reddit_idx))
-
+with open('gpt_reddit_prompts.txt', 'w') as f:
+    f.write('\n'.join(reddit_prompts))
+# print(reddit_prompts[0:3])
 
 ## Create ChatGPT client
 def ask_chatgpt(idx, prompts, outFilePath):

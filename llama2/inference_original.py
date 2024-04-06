@@ -13,6 +13,7 @@ from datasets import load_dataset, DatasetDict
 from torch.utils.data import DataLoader, Dataset
 import pickle as pkl
 import os
+import random
 
 def prompt_CNN(article):
 
@@ -133,48 +134,59 @@ def call(generator, articles, name, max_gen_len,temperature,top_p):
 def main(
     ckpt_dir: str,
     tokenizer_path: str,
-    temperature: float = 0.7,
+    temperature: float = 0,
     top_p: float = 0.9,
-    max_seq_len: int = 8000,
+    max_seq_len: int = 4096,
     max_batch_size: int = 2,
     max_gen_len: Optional[int] = None,
 ):
 
     generator = build(ckpt_dir,tokenizer_path,max_seq_len,max_batch_size)
     
-    
-    # dataset = load_dataset("cnn_dailymail", '3.0.0')
-    # article_key = 'article'
-    # summary_key = 'highlights'
-    # name='cnn_dailymail'
-    # data=dataset['test']
 
-    # #dataset=dataset.select(range(10))
     
-    # collected=os.listdir('data/cnn')
-    # count=0
+    dataset = load_dataset("cnn_dailymail", '3.0.0')
+    article_key = 'article'
+    summary_key = 'highlights'
+    name='cnn_dailymail'
+    data=dataset['test']
+    
+    ### For 10% sample
+    
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
 
-    # for article in tqdm(data[article_key]):
-    #     cnn=[]
-    #     context = article
+
+    data=data.select(random_indices)
+    
+    collected=os.listdir('temp0/data_original/cnn')
+    count=0
+
+    for article in tqdm(data[article_key]):
+        cnn=[]
+        context = article
         
-    #     if '{}.pkl'.format(count) in collected:
-    #         count+=1
-    #         continue
+        if '{}.pkl'.format(count) in collected:
+            count+=1
+            continue
         
-    #     else:    
-    #         try:    
-    #             cnn.append(call(generator,article, name,max_gen_len,temperature,top_p))
-    #             with open('data/cnn/{}.pkl'.format(count), 'wb') as f:
-    #                 pkl.dump(cnn,f)
-    #         except RuntimeError as e:
-    #             if "out of memory" in str(e):
-    #                 print("out of memory")
-    #                 with open('data/cnn/{}.pkl'.format(count), 'wb') as f:
-    #                     pkl.dump([],f)
+        else:    
+            try:    
+                cnn.append(call(generator,article, name,max_gen_len,temperature,top_p))
+                with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+                    pkl.dump(cnn,f)
+            except RuntimeError as e:
+                if "out of memory" in str(e):
+                    print("out of memory")
+                    with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+                        pkl.dump([],f)
             
             
-    #         count+=1  
+            count+=1  
 
 
 
@@ -184,11 +196,19 @@ def main(
     summary_key = 'summary'
     data=dataset['test']
 
-    #dataset=dataset.select(range(10))
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
+
+
+    data=data.select(random_indices)
     name='xsum'
 
 
-    collected=os.listdir('data/xsum-roleplay')
+    collected=os.listdir('temp0/data_original/xsum')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -200,7 +220,7 @@ def main(
             continue
         
         elif count==8018:
-            with open('data/xsum-roleplay/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([' '],f)
             count+=1
             continue
@@ -209,103 +229,123 @@ def main(
         else:
             try:    
                 xsum.append(call(generator,article, name,max_gen_len,temperature,top_p))
-                with open('data/xsum-roleplay/{}.pkl'.format(count), 'wb') as f:
+                with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(xsum,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('data/xsum-roleplay/{}.pkl'.format(count), 'wb') as f:
+                    with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
             
             
             count+=1    
             
 
-    # dataset = load_dataset("argilla/news-summary")
-    # article_key = 'text'
-    # summary_key = 'prediction'
-    # dataset = DatasetDict({
-    #     'train': dataset['test'],
-    #         'test': dataset['train']})
-    # data=dataset['test']
-    # #dataset=dataset.select(range(10))
-    # name='argilla/news-summary'
+    dataset = load_dataset("argilla/news-summary")
+    article_key = 'text'
+    summary_key = 'prediction'
+    dataset = DatasetDict({
+        'train': dataset['test'],
+            'test': dataset['train']})
+    data=dataset['test']
+    #dataset=dataset.select(range(10))
+    name='argilla/news-summary'
+    
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
+
+
+    data=data.select(random_indices)
 
 
 
-    # collected=os.listdir('data/news')
-    # count=0
+    collected=os.listdir('temp0/data_original/news')
+    count=0
 
-    # for article in tqdm(data[article_key]):
-    #     news=[]
-    #     context = article
+    for article in tqdm(data[article_key]):
+        news=[]
+        context = article
         
-    #     if '{}.pkl'.format(count) in collected:
-    #         count+=1
-    #         continue
+        if '{}.pkl'.format(count) in collected:
+            count+=1
+            continue
         
         
-    #     else:    
-    #         try:    
-    #             news.append(call(generator,article, name,max_gen_len,temperature,top_p))
-    #             with open('data/news/{}.pkl'.format(count), 'wb') as f:
-    #                 pkl.dump(news,f)
-    #         except RuntimeError as e:
-    #             if "out of memory" in str(e):
-    #                 print("out of memory")
-    #                 with open('data/news/{}.pkl'.format(count), 'wb') as f:
-    #                     pkl.dump([],f)
+        else:    
+            try:    
+                news.append(call(generator,article, name,max_gen_len,temperature,top_p))
+                with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+                    pkl.dump(news,f)
+            except RuntimeError as e:
+                if "out of memory" in str(e):
+                    print("out of memory")
+                    with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+                        pkl.dump([],f)
             
             
-    #         count+=1
+            count+=1
     
 
 
 
-    # dataset = load_dataset('reddit_tifu', 'long')
-    # article_key = 'documents'
-    # summary_key = 'tldr'
-    # # 80% train, 20% test + validation
-    # train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
-    # # Split the 20% test + valid in half test, half valid
-    # test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
-    # # gather everyone if you want to have a single DatasetDict
-    # dataset = DatasetDict({
-    #     'train': train_testvalid['train'],
-    #     'test': test_valid['test'],
-    #     'validation': test_valid['train']})
+    dataset = load_dataset('reddit_tifu', 'long')
+    article_key = 'documents'
+    summary_key = 'tldr'
+    # 80% train, 20% test + validation
+    train_testvalid = dataset['train'].train_test_split(test_size=0.2, seed=42)
+    # Split the 20% test + valid in half test, half valid
+    test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
+    # gather everyone if you want to have a single DatasetDict
+    dataset = DatasetDict({
+        'train': train_testvalid['train'],
+        'test': test_valid['test'],
+        'validation': test_valid['train']})
 
 
-    # data=dataset['test']
-    # #dataset=dataset.select(range(10))
-    # name='reddit_tifu'
+    data=dataset['test']
+    #dataset=dataset.select(range(10))
+    name='reddit_tifu'
+    
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
 
-    # collected=os.listdir('data/reddit')
-    # count=0
 
-    # for article in tqdm(data[article_key]):
-    #     reddit=[]
-    #     context = article
+    data=data.select(random_indices)
+
+    collected=os.listdir('temp0/data_original/reddit')
+    count=0
+
+    for article in tqdm(data[article_key]):
+        reddit=[]
+        context = article
         
-    #     if '{}.pkl'.format(count) in collected:
-    #         count+=1
-    #         continue
+        if '{}.pkl'.format(count) in collected:
+            count+=1
+            continue
         
         
-    #     else:
-    #         try:    
-    #             reddit.append(call(generator,article, name,max_gen_len,temperature,top_p))
-    #             with open('data/reddit/{}.pkl'.format(count), 'wb') as f:
-    #                 pkl.dump(reddit,f)
-    #         except RuntimeError as e:
-    #             if "out of memory" in str(e):
-    #                 print("out of memory")
-    #                 with open('data/reddit/{}.pkl'.format(count), 'wb') as f:
-    #                     pkl.dump([],f)
+        else:
+            try:    
+                reddit.append(call(generator,article, name,max_gen_len,temperature,top_p))
+                with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+                    pkl.dump(reddit,f)
+            except RuntimeError as e:
+                if "out of memory" in str(e):
+                    print("out of memory")
+                    with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+                        pkl.dump([],f)
                  
                     
                 
-    #         count+=1
+            count+=1
     
 
 

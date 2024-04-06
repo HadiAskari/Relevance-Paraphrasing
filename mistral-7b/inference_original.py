@@ -58,7 +58,7 @@ def generate_summary(pipe,prompt):
         prompt,
         do_sample=True,
         max_new_tokens=1000, 
-        temperature=0.7, 
+        temperature=0, 
         top_k=50, 
         top_p=0.95,
         num_return_sequences=1,
@@ -115,12 +115,23 @@ if __name__=='__main__':
     article_key = 'article'
     summary_key = 'highlights'
     data=data['test']
-    # data = data.remove_columns(article_key).add_column(article_key, pkls_list).cast(data.features)
-    #data=data.select(range(10))
+    
+    ### For 10% sample
+    
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
+
+
+    data=data.select(random_indices)
+    
 
     # template for an instruction with input
   
-    collected=os.listdir('data_original/cnn')
+    collected=os.listdir('temp0/data_original/cnn')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -132,12 +143,12 @@ if __name__=='__main__':
             continue
         
         elif count==8018:
-            with open('data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(cnn,f)
             count+=1
             
         elif article==' ':
-            with open('data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -147,24 +158,13 @@ if __name__=='__main__':
             res=generate_summary(pipe,prompt)    
             # print(res)
             cnn.append(res)
-            with open('data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(cnn,f)
             count+=1
 
 
     data = load_dataset("xsum")
 
-    # pkls=os.listdir('../paraphrased_articles/xsum')
-    # pkls=natsorted(pkls)
-    # pkls_list=[]
-    # count=0
-    # for pikl in pkls:
-    #     with open('../paraphrased_articles/xsum/{}'.format(pikl),'rb') as f:
-    #         file=pkl.load(f)
-    #     if not file:
-    #         count+=1
-    #         file.append(' ') #no paraphrasing possible
-    #     pkls_list.extend(file)
 
 
 
@@ -172,12 +172,23 @@ if __name__=='__main__':
     article_key = 'document'
     summary_key = 'summary'
     data=data['test']
-    # data = data.remove_columns(article_key).add_column(article_key, pkls_list).cast(data.features)
-    # #data=data.select(range(10))
+    
+    ### For 10% sample
+    
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
+
+
+    data=data.select(random_indices)
+    
 
 
 
-    collected=os.listdir('data_original/xsum')
+    collected=os.listdir('temp0/data_original/xsum')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -189,12 +200,12 @@ if __name__=='__main__':
             continue
         
         elif count==8018:
-            with open('data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(xsum,f)
             count+=1
         
         elif article==' ':
-            with open('data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -203,25 +214,13 @@ if __name__=='__main__':
             prompt=prompt_rest(article)
             res=generate_summary(pipe,prompt)    
             xsum.append(res)
-            with open('data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(xsum,f)
             count+=1
 
 
 
     data = load_dataset("argilla/news-summary")
-
-    # pkls=os.listdir('../paraphrased_articles/news')
-    # pkls=natsorted(pkls)
-    # pkls_list=[]
-    # count=0
-    # for pikl in pkls:
-    #     with open('../paraphrased_articles/news/{}'.format(pikl),'rb') as f:
-    #         file=pkl.load(f)
-    #     if not file:
-    #         count+=1
-    #         file.append(' ') #no paraphrasing possible
-    #     pkls_list.extend(file)
 
 
     article_key = 'text'
@@ -231,14 +230,22 @@ if __name__=='__main__':
         'test': data['train']})
 
     data=data['test']
-    # data = data.remove_columns(article_key).add_column(article_key, pkls_list).cast(data.features)
+
+    ### For 10% sample
+    
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
 
 
-    #data=data.select(range(10))
-    # template for an instruction with input
+    data=data.select(random_indices)
+    
 
 
-    collected=os.listdir('data_original/news')
+    collected=os.listdir('temp0/data_original/news')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -250,12 +257,12 @@ if __name__=='__main__':
             continue
         
         elif count==8018:
-            with open('data_original/news/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(news,f)
             count+=1
             
         elif article==' ':
-            with open('data_original/news/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -263,7 +270,7 @@ if __name__=='__main__':
             prompt=prompt_rest(article)
             res=generate_summary(pipe,prompt)    
             news.append(res)
-            with open('data_original/news/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(news,f)
             count+=1
 
@@ -271,17 +278,8 @@ if __name__=='__main__':
 
     data = load_dataset('reddit_tifu', 'long')
 
-    # pkls=os.listdir('../paraphrased_articles/reddit')
-    # pkls=natsorted(pkls)
-    # pkls_list=[]
-    # count=0
-    # for pikl in pkls:
-    #     with open('../paraphrased_articles/reddit/{}'.format(pikl),'rb') as f:
-    #         file=pkl.load(f)
-    #     if not file:
-    #         count+=1
-    #         file.append(' ') #no paraphrasing possible
-    #     pkls_list.extend(file)
+
+    
 
 
 
@@ -299,14 +297,21 @@ if __name__=='__main__':
         'validation': test_valid['train']})
 
     data=data['test']
-    # data = data.remove_columns(article_key).add_column(article_key, pkls_list).cast(data.features)
+
+    ### For 10% sample
+    
+    random.seed(42)
+    ten_percent=int(len(data)*0.115)
+    # print(ten_percent)
+    random_indices = random.sample(range(len(data)), ten_percent)
+    random_indices.sort()
+    # random_indices
 
 
-    #data=data.select(range(10))
-    # template for an instruction with input
+    data=data.select(random_indices)
 
 
-    collected=os.listdir('data_original/reddit')
+    collected=os.listdir('temp0/data_original/reddit')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -318,11 +323,11 @@ if __name__=='__main__':
             continue
         
         elif count==8018:
-            with open('data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(reddit,f)
             count+=1
         elif article==' ':
-            with open('data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -330,6 +335,6 @@ if __name__=='__main__':
             prompt=prompt_rest(article)
             res=generate_summary(pipe,prompt)    
             reddit.append(res)
-            with open('data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+            with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(reddit,f)
             count+=1
