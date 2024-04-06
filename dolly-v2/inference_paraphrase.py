@@ -30,7 +30,9 @@ model_name = "databricks/dolly-v2-7b"
 model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_4bit=True,quantization_config=bnb_config)
 tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
 
-generate_text = pipeline(model="databricks/dolly-v2-7b", trust_remote_code=True, device_map="auto",return_full_text=True)
+generate_text = pipeline(model="databricks/dolly-v2-7b", trust_remote_code=True, device_map="auto",return_full_text=True, do_sample=False,
+        max_new_tokens=500, 
+        temperature=0.0001)
 
 
 data = load_dataset("cnn_dailymail", '3.0.0')
@@ -51,9 +53,21 @@ article_key = 'article'
 summary_key = 'highlights'
 data=data['test']
 data = data.remove_columns(article_key).add_column(article_key, pkls_list).cast(data.features)
-#data=data.select(range(10))
 
-# template for an instruction with input
+### For 10% sample
+
+random.seed(42)
+ten_percent=int(len(data)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(data)), ten_percent)
+random_indices.sort()
+# random_indices
+
+
+data=data.select(random_indices)
+    
+
+
 prompt_with_context = PromptTemplate(
     input_variables=["instruction", "context"],
     template="{instruction}\n\nArticle:\n{context}")
@@ -63,7 +77,7 @@ hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-collected=os.listdir('data_paraphrase/cnn')
+collected=os.listdir('temp0/data_paraphrase/cnn')
 count=0
 
 for article in tqdm(data[article_key]):
@@ -75,18 +89,18 @@ for article in tqdm(data[article_key]):
         continue
     
     elif count==8018:
-        with open('data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(cnn,f)
         count+=1
         
     elif article==' ':
-        with open('data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
             pkl.dump([' '],f)
         count+=1
         continue
     else:    
-        cnn.append(llm_context_chain.predict(instruction="Generate a 1 sentence summary for the given article.", context=context).lstrip())
-        with open('data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
+        cnn.append(llm_context_chain.predict(instruction="Generate a 3 sentence summary for the given article.", context=context).lstrip())
+        with open('temp0/data_paraphrase/cnn/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(cnn,f)
         count+=1
 
@@ -112,9 +126,21 @@ article_key = 'document'
 summary_key = 'summary'
 data=data['test']
 data = data.remove_columns(article_key).add_column(article_key, pkls_list).cast(data.features)
-# #data=data.select(range(10))
 
-# template for an instruction with input
+### For 10% sample
+
+random.seed(42)
+ten_percent=int(len(data)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(data)), ten_percent)
+random_indices.sort()
+# random_indices
+
+
+data=data.select(random_indices)
+    
+
+
 prompt_with_context = PromptTemplate(
     input_variables=["instruction", "context"],
     template="{instruction}\n\nArticle:\n{context}")
@@ -124,7 +150,7 @@ hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-collected=os.listdir('data_paraphrase/xsum')
+collected=os.listdir('temp0/data_paraphrase/xsum')
 count=0
 
 for article in tqdm(data[article_key]):
@@ -136,19 +162,19 @@ for article in tqdm(data[article_key]):
         continue
     
     elif count==8018:
-        with open('data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(xsum,f)
         count+=1
     
     elif article==' ':
-        with open('data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
             pkl.dump([' '],f)
         count+=1
         continue
     
     else:    
         xsum.append(llm_context_chain.predict(instruction="Generate a 1 sentence summary for the given article.", context=context).lstrip())
-        with open('data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/xsum/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(xsum,f)
         count+=1
 
@@ -178,9 +204,20 @@ data = DatasetDict({
 data=data['test']
 data = data.remove_columns(article_key).add_column(article_key, pkls_list).cast(data.features)
 
+### For 10% sample
 
-#data=data.select(range(10))
-# template for an instruction with input
+random.seed(42)
+ten_percent=int(len(data)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(data)), ten_percent)
+random_indices.sort()
+# random_indices
+
+
+data=data.select(random_indices)
+    
+
+
 prompt_with_context = PromptTemplate(
     input_variables=["instruction", "context"],
     template="{instruction}\n\nArticle:\n{context}")
@@ -190,7 +227,7 @@ hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-collected=os.listdir('data_paraphrase/news')
+collected=os.listdir('temp0/data_paraphrase/news')
 count=0
 
 for article in tqdm(data[article_key]):
@@ -202,18 +239,18 @@ for article in tqdm(data[article_key]):
         continue
     
     elif count==8018:
-        with open('data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(news,f)
         count+=1
         
     elif article==' ':
-        with open('data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
             pkl.dump([' '],f)
         count+=1
         continue
     else:    
         news.append(llm_context_chain.predict(instruction="Generate a 1 sentence summary for the given article.", context=context).lstrip())
-        with open('data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/news/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(news,f)
         count+=1
 
@@ -251,9 +288,20 @@ data = DatasetDict({
 data=data['test']
 data = data.remove_columns(article_key).add_column(article_key, pkls_list).cast(data.features)
 
+### For 10% sample
 
-#data=data.select(range(10))
-# template for an instruction with input
+random.seed(42)
+ten_percent=int(len(data)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(data)), ten_percent)
+random_indices.sort()
+# random_indices
+
+
+data=data.select(random_indices)
+    
+    
+    
 prompt_with_context = PromptTemplate(
     input_variables=["instruction", "context"],
     template="{instruction}\n\nArticle:\n{context}")
@@ -263,7 +311,7 @@ hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-collected=os.listdir('data_paraphrase/reddit')
+collected=os.listdir('temp0/data_paraphrase/reddit')
 count=0
 
 for article in tqdm(data[article_key]):
@@ -275,16 +323,16 @@ for article in tqdm(data[article_key]):
         continue
     
     elif count==8018:
-        with open('data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(reddit,f)
         count+=1
     elif article==' ':
-        with open('data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
             pkl.dump([' '],f)
         count+=1
         continue
     else:    
         reddit.append(llm_context_chain.predict(instruction="Generate a 1 sentence summary for the given article.", context=context).lstrip())
-        with open('data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_paraphrase/reddit/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(reddit,f)
         count+=1

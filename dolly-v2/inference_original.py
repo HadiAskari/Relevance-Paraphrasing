@@ -8,6 +8,7 @@ import pickle as pkl
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import os
 import transformers
+import random
 
 # set quantization configuration to load large model with less GPU memory
 # this requires the `bitsandbytes` library
@@ -25,10 +26,12 @@ model_name = "databricks/dolly-v2-7b"
 
 
 
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map=0, load_in_4bit=True,quantization_config=bnb_config)
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_4bit=True,quantization_config=bnb_config)
 tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
 
-generate_text = pipeline(model="databricks/dolly-v2-7b", trust_remote_code=True, device_map=0,return_full_text=True)
+generate_text = pipeline(model="databricks/dolly-v2-7b", trust_remote_code=True, device_map="auto",return_full_text=True, do_sample=False,
+        max_new_tokens=500, 
+        temperature=0.0001)
 
 
 data = load_dataset("cnn_dailymail", '3.0.0')
@@ -36,7 +39,18 @@ article_key = 'article'
 summary_key = 'highlights'
 data=data['test']
 
-#data=data.select(range(10))
+### For 10% sample
+
+random.seed(42)
+ten_percent=int(len(data)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(data)), ten_percent)
+random_indices.sort()
+# random_indices
+
+
+data=data.select(random_indices)
+    
 
 # template for an instruction with input
 prompt_with_context = PromptTemplate(
@@ -48,22 +62,50 @@ hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-cnn=[]
+
+collected=os.listdir('temp0/data_original/cnn')
+count=0
+
 for article in tqdm(data[article_key]):
+    cnn=[]
     context = article
-
-    cnn.append(llm_context_chain.predict(instruction="User: From now on you are an expert summarizer of articles that will help me generate summaries. Assistant: Sure! I can help you in generating summaries for articles. Please go ahead and send me the article. User: Generate a 3 sentence summary for the given article.", context=context).lstrip())
-
-with open('data/cnn.pkl', 'wb') as f:
-    pkl.dump(cnn,f)
-
+    
+    if '{}.pkl'.format(count) in collected:
+        count+=1
+        continue
+    
+    elif count==8018:
+        with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+            pkl.dump(cnn,f)
+        count+=1
+        
+    elif article==' ':
+        with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+            pkl.dump([' '],f)
+        count+=1
+        continue
+    else:    
+        cnn.append(llm_context_chain.predict(instruction="Generate a 3 sentence summary for the given article.", context=context).lstrip())
+        with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+            pkl.dump(cnn,f)
+        count+=1
 
 data = load_dataset("xsum")
 article_key = 'document'
 summary_key = 'summary'
 data=data['test']
+### For 10% sample
 
-#data=data.select(range(10))
+random.seed(42)
+ten_percent=int(len(data)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(data)), ten_percent)
+random_indices.sort()
+# random_indices
+
+
+data=data.select(random_indices)
+    
 
 # template for an instruction with input
 prompt_with_context = PromptTemplate(
@@ -75,7 +117,7 @@ hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-collected=os.listdir('data/xsum')
+collected=os.listdir('temp0/data_original/xsum')
 count=0
 
 for article in tqdm(data[article_key]):
@@ -87,13 +129,19 @@ for article in tqdm(data[article_key]):
         continue
     
     elif count==8018:
-        with open('data/xsum/{}.pkl'.format(count), 'wb') as f:
+        with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(xsum,f)
         count+=1
     
+    elif article==' ':
+        with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            pkl.dump([' '],f)
+        count+=1
+        continue
+    
     else:    
-        xsum.append(llm_context_chain.predict(instruction="User: From now on you are an expert summarizer of articles that will help me generate summaries. Assistant: Sure! I can help you in generating summaries for articles. Please go ahead and send me the article. User: Generate a 1 sentence summary for the given article.", context=context).lstrip())
-        with open('data/xsum/{}.pkl'.format(count), 'wb') as f:
+        xsum.append(llm_context_chain.predict(instruction="Generate a 1 sentence summary for the given article.", context=context).lstrip())
+        with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(xsum,f)
         count+=1
 
@@ -107,8 +155,20 @@ data = DatasetDict({
     'test': data['train']})
 
 data=data['test']
-#data=data.select(range(10))
-# template for an instruction with input
+
+### For 10% sample
+
+random.seed(42)
+ten_percent=int(len(data)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(data)), ten_percent)
+random_indices.sort()
+# random_indices
+
+
+data=data.select(random_indices)
+    
+
 prompt_with_context = PromptTemplate(
     input_variables=["instruction", "context"],
     template="{instruction}\n\nArticle:\n{context}")
@@ -118,14 +178,32 @@ hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-news=[]
+collected=os.listdir('temp0/data_original/news')
+count=0
+
 for article in tqdm(data[article_key]):
+    news=[]
     context = article
-
-    news.append(llm_context_chain.predict(instruction="User: From now on you are an expert summarizer of articles that will help me generate summaries. Assistant: Sure! I can help you in generating summaries for articles. Please go ahead and send me the article. User: Generate a 1 sentence summary for the given article.", context=context).lstrip())
-
-with open('data/news.pkl', 'wb') as f:
-    pkl.dump(news,f)
+    
+    if '{}.pkl'.format(count) in collected:
+        count+=1
+        continue
+    
+    elif count==8018:
+        with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+            pkl.dump(news,f)
+        count+=1
+        
+    elif article==' ':
+        with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+            pkl.dump([' '],f)
+        count+=1
+        continue
+    else:    
+        news.append(llm_context_chain.predict(instruction="Generate a 1 sentence summary for the given article.", context=context).lstrip())
+        with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+            pkl.dump(news,f)
+        count+=1
 
 
 
@@ -143,8 +221,20 @@ data = DatasetDict({
     'validation': test_valid['train']})
 
 data=data['test']
-#data=data.select(range(10))
-# template for an instruction with input
+
+### For 10% sample
+
+random.seed(42)
+ten_percent=int(len(data)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(data)), ten_percent)
+random_indices.sort()
+# random_indices
+
+
+data=data.select(random_indices)
+    
+
 prompt_with_context = PromptTemplate(
     input_variables=["instruction", "context"],
     template="{instruction}\n\nArticle:\n{context}")
@@ -154,11 +244,28 @@ hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-reddit=[]
+collected=os.listdir('temp0/data_original/reddit')
+count=0
+
 for article in tqdm(data[article_key]):
+    reddit=[]
     context = article
-
-    reddit.append(llm_context_chain.predict(instruction="User: From now on you are an expert summarizer of articles that will help me generate summaries. Assistant: Sure! I can help you in generating summaries for articles. Please go ahead and send me the article. User: Generate a 1 sentence summary for the given article.", context=context).lstrip())
-
-with open('data/reddit.pkl', 'wb') as f:
-    pkl.dump(reddit,f)
+    
+    if '{}.pkl'.format(count) in collected:
+        count+=1
+        continue
+    
+    elif count==8018:
+        with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+            pkl.dump(reddit,f)
+        count+=1
+    elif article==' ':
+        with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+            pkl.dump([' '],f)
+        count+=1
+        continue
+    else:    
+        reddit.append(llm_context_chain.predict(instruction="Generate a 1 sentence summary for the given article.", context=context).lstrip())
+        with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+            pkl.dump(reddit,f)
+        count+=1

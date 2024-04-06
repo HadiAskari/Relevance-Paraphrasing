@@ -56,9 +56,9 @@ def generate_summary(pipe,prompt):
     
     sequences = pipe(
         prompt,
-        do_sample=True,
+        do_sample=False,
         max_new_tokens=1000, 
-        temperature=0, 
+        temperature=0.0001, 
         top_k=50, 
         top_p=0.95,
         num_return_sequences=1,
