@@ -81,7 +81,7 @@ langsmith==0.0.40
 lightning-utilities==0.9.0
 lit==16.0.6
 # Editable install with no version control (llama==0.0.1)
--e /home/haskari/Hadi/political_llms/llama
+# -e /home/haskari/Hadi/political_llms/llama
 markdown-it-py==3.0.0
 markdown2==2.4.10
 MarkupSafe @ file:///work/ci_py311/markupsafe_1676823507015/work
