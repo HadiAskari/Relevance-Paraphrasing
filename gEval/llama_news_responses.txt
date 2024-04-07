@@ -1,0 +1,262 @@
+4	pon meeting with European Council President Donald Tusk, U.S. Vice President Mike Pence reiterated President Trump's commitment to working with the European Union towards common goals of peace and prosperity.
+4	70, 20, 5, 3, 2
+6	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article, mentioning the phone call between McConnell and Garland and the decision not to act on the nomination or meet with him. However, it lacks some details and context provided in the original article, such as McConnell's reasoning for the decision and the statement from McConnell's spokesman. Overall, the summary is clear and logical but could be more comprehensive.
+6	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article, presenting them in a clear and logical order. It accurately conveys the message that Senate Republicans will not act on Merrick Garland's nomination or meet with him. There is a high likelihood of receiving a score of 5, with a small chance of receiving lower scores due to minor details or wording.
+17	90, 5, 3, 1, 1
+17	90, 5, 3, 1, 1
+38	90, 5, 3, 1, 1
+38	90, 5, 3, 1, 1
+40	95, 3, 1, 0, 1
+40	90, 5, 3, 1, 1
+49	80, 15, 3, 1, 1
+49	90, 5, 3, 1, 1
+52	90, 5, 3, 1, 1
+52	90, 5, 3, 1, 1
+67	90, 5, 3, 1, 1
+67	90, 5, 3, 1, 1
+69	80, 15, 5, 0, 0
+69	70, 20, 5, 3, 2
+70	90, 5, 3, 1, 1
+70	90, 5, 3, 1, 1
+78	90, 5, 3, 1, 1
+78	90, 5, 3, 1, 1
+89	90, 5, 3, 1, 1
+89	90, 5, 3, 1, 1
+94	95, 3, 1, 0, 1
+94	90, 5, 3, 1, 1
+113	90, 5, 3, 1, 1
+113	90, 5, 3, 1, 1
+137	90, 5, 3, 1, 1
+137	90, 5, 3, 1, 1
+169	95, 3, 1, 0, 1
+169	90, 5, 3, 1, 1
+183	90, 5, 3, 1, 1
+183	95, 3, 1, 0, 1
+191	90, 5, 3, 1, 1
+191	90, 5, 3, 1, 1
+197	90, 5, 3, 1, 1
+197	90, 5, 3, 1, 1
+207	90, 5, 3, 1, 1
+207	90, 5, 3, 1, 1
+223	90, 5, 3, 1, 1
+223	90, 5, 3, 1, 1
+227	90, 5, 3, 1, 1
+227	90, 5, 3, 1, 1
+230	90, 5, 3, 1, 1
+230	90, 5, 3, 1, 1
+239	70, 15, 10, 3, 2
+239	The summary is missing.
+246	90, 5, 3, 1, 1
+246	90, 5, 3, 1, 1
+248	70, 20, 5, 3, 2
+248	90, 5, 3, 1, 1
+250	50, 30, 15, 3, 2
+250	90, 5, 3, 1, 1
+272	90, 5, 3, 1, 1
+272	90, 5, 3, 1, 1
+275	90, 5, 3, 1, 1
+275	90, 5, 3, 1, 1
+296	90, 5, 3, 1, 1
+296	90, 5, 3, 1, 1
+300	90, 5, 3, 1, 1
+300	90, 5, 3, 1, 1
+309	90, 5, 3, 1, 1
+309	90, 5, 3, 1, 1
+314	90, 5, 3, 1, 1
+314	90, 5, 3, 1, 1
+347	90, 5, 3, 1, 1
+347	90, 5, 3, 1, 1
+355	90, 5, 3, 1, 1
+355	90, 5, 3, 1, 1
+358	90, 5, 3, 1, 1
+358	90, 5, 3, 1, 1
+374	90, 5, 3, 1, 1
+374	90, 5, 3, 1, 1
+378	90, 5, 3, 1, 1
+378	90, 5, 3, 1, 1
+381	90, 5, 3, 1, 1
+381	90, 5, 3, 1, 1
+387	90, 5, 3, 1, 1
+387	90, 5, 3, 1, 1
+394	90, 5, 3, 1, 1
+394	90, 5, 3, 1, 1
+396	95, 3, 1, 0, 1
+
+The summary covers the main topic and key points of the news article accurately and in a clear and logical order. It provides the essential information about the incident involving the four Russian reporters in Syria's Deir al-Zor area as reported by the RIA news agency and the Russian defense ministry. The only minor issue is the lack of mention of the reporters' affiliation with NTV TV station and Zvezda TV station, which could have provided additional context.
+396	90, 5, 3, 1, 1
+411	90, 5, 3, 1, 1
+411	90, 5, 3, 1, 1
+439	95, 3, 1, 0, 1
+439	90, 5, 3, 1, 1
+461	90, 5, 3, 1, 1
+461	90, 5, 3, 1, 1
+463	95, 3, 1, 0, 1
+463	90, 5, 3, 1, 1
+481	70, 20, 5, 3, 2
+481	70, 20, 5, 3, 2
+485	90, 5, 3, 1, 1
+485	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article by mentioning the appointment of the former ambassador to Saudi Arabia as a special envoy to support mediation efforts in the dispute between Qatar and its neighbors. It presents the information in a clear and logical order. There is a high likelihood that the summary will receive a score of 5.
+498	90, 5, 3, 1, 1
+498	90, 5, 3, 1, 1
+503	90, 5, 3, 1, 1
+503	90, 5, 3, 1, 1
+505	95, 3, 1, 0, 1
+505	90, 5, 3, 1, 1
+517	90, 5, 3, 1, 1
+517	90, 5, 3, 1, 1
+519	90, 5, 3, 1, 1
+519	90, 5, 3, 1, 1
+534	90, 5, 3, 1, 1
+534	90, 5, 3, 1, 1
+541	70, 15, 10, 3, 2
+541	The summary is incomplete.
+546	90, 5, 3, 1, 1
+546	90, 5, 3, 1, 1
+558	90, 5, 3, 1, 1
+558	95, 3, 1, 1, 0
+562	90, 5, 3, 1, 1
+562	90, 5, 3, 1, 1
+574	90, 5, 3, 1, 1
+574	90, 5, 3, 1, 1
+578	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article by highlighting the stance of the Free Democratic Party (FDP) on coalition talks with Chancellor Angela Merkel's conservatives and the Greens. It presents the information in a clear and logical order.
+578	90, 5, 3, 1, 1
+581	90, 5, 3, 1, 1
+581	90, 5, 3, 1, 1
+597	90, 5, 3, 1, 1
+597	90, 5, 3, 1, 1
+598	50, 30, 10, 5, 5
+598	50, 30, 10, 5, 5
+601	90, 5, 3, 1, 1
+601	90, 5, 3, 1, 1
+602	70, 20, 5, 3, 2
+602	90, 5, 3, 1, 1
+618	90, 5, 3, 1, 1
+618	90, 5, 3, 1, 1
+619	90, 5, 3, 1, 1
+619	90, 5, 3, 1, 1
+631	70, 20, 5, 3, 2
+631	90, 5, 3, 1, 1
+640	90, 5, 3, 1, 1
+640	90, 5, 3, 1, 1
+657	90, 5, 3, 1, 1
+
+The summary accurately covers the main topic and key points of the news article, mentioning the CSU nomination of Markus Soeder as the candidate for state premier in the regional election. However, it lacks some important details such as Soeder's stance on Merkel's refugee policy and the role of Horst Seehofer in the decision-making process. Overall, the summary is clear and logically presented, but could benefit from more depth and context.
+657	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article by mentioning the CSU party nominating Markus Soeder as their candidate for state premier in a regional election. However, it lacks details about Soeder's stance on Merkel's refugee policy and the role of Horst Seehofer in the decision-making process. Overall, the summary presents the information in a clear and logical order.
+669	90, 5, 3, 1, 1
+669	90, 5, 3, 1, 1
+672	90, 5, 3, 1, 1
+672	90, 5, 3, 1, 1
+676	70, 20, 5, 3, 2
+676	90, 5, 3, 1, 1
+688	90, 5, 3, 1, 1
+688	90, 5, 3, 1, 1
+691	90, 5, 3, 1, 1
+691	90, 5, 3, 1, 1
+692	90, 5, 3, 1, 1
+692	90, 5, 3, 1, 1
+696	90, 5, 3, 1, 1
+696	90, 5, 3, 1, 1
+704	90, 5, 3, 1, 1
+704	90, 5, 3, 1, 1
+723	90, 5, 3, 1, 1
+723	90, 5, 3, 1, 1
+725	90, 5, 3, 1, 1
+725	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article, focusing on President Trump signing an executive order to improve the infrastructure project process. It presents the information in a clear and logical order. There is a high likelihood of the summary receiving a score of 5, with a small chance of receiving lower scores due to potential minor details or additional context missing from the summary.
+728	90, 5, 3, 1, 1
+728	90, 5, 3, 1, 1
+729	90, 5, 3, 1, 1
+729	90, 5, 3, 1, 1
+735	90, 5, 3, 1, 1
+735	90, 5, 3, 1, 1
+766	The summary is incomplete.
+766	The summary is incomplete.
+769	70, 15, 10, 3, 2
+769	90, 5, 3, 1, 1
+773	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article, presenting them in a clear and logical order. It accurately captures the essence of the article but lacks some details that could enhance the understanding of the situation. Overall, it is highly likely to receive a score of 5.
+773	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article, presenting them in a clear and logical order. It accurately captures the essence of the article by mentioning the White House's refusal to comment on Israel being the source of the sensitive information shared with the Russian Foreign Minister. The only minor issue is the lack of mentioning the request for transcripts by lawmakers, which is why it may not receive a perfect score.
+778	95, 3, 1, 1, 0
+778	95, 3, 1, 0, 1
+782	90, 5, 3, 1, 1
+782	90, 5, 3, 1, 1
+795	70, 20, 5, 3, 2
+795	90, 5, 3, 1, 1
+803	90, 5, 3, 1, 1
+803	90, 5, 3, 1, 1
+819	90, 5, 3, 1, 1
+819	90, 5, 3, 1, 1
+827	95, 3, 1, 1, 0
+
+The summary covers the main topic and key points of the news article accurately and presents them in a clear and logical order. It captures the essence of the situation in Kirkuk, Iraq, and the response from the US State Department. There is a very high likelihood that this summary would receive a score of 5.
+827	90, 5, 3, 1, 1
+835	90, 5, 3, 1, 1
+835	90, 5, 3, 1, 1
+836	90, 5, 3, 1, 1
+836	90, 5, 3, 1, 1
+838	90, 5, 3, 1, 1
+838	Likelihood of scoring:
+90, 5, 3, 1, 1
+
+The summary is likely to score a 5 as it covers the main topic of the Senate panel issuing a subpoena to Paul Manafort and the key points of his refusal to appear at a hearing. It presents the information in a clear and logical order. There is a small chance of scoring a 4 due to potential minor details missing. The likelihood of scoring a 3 is low as the summary captures the main points effectively. The chances of scoring a 2 or 1 are minimal as the summary is concise and informative.
+867	90, 5, 3, 1, 1
+867	90, 5, 3, 1, 1
+875	70, 20, 5, 3, 2
+875	90, 5, 3, 1, 1
+895	90, 5, 3, 1, 1
+895	90, 5, 3, 1, 1
+911	90, 5, 3, 1, 1
+911	80, 15, 3, 1, 1
+915	90, 5, 3, 1, 1
+915	90, 5, 3, 1, 1
+920	95, 3, 1, 0, 1
+
+The summary covers the main topic and key points of the news article by mentioning the consensus between Saudi King Salman and Russian President Vladimir Putin on broadening relations. However, it lacks details about the meeting in Moscow and the importance of the relationship between the two countries for world oil prices and the conflict in Syria. Overall, the summary is clear and logical but could provide more context.
+920	90, 5, 3, 1, 1
+
+The summary effectively captures the main topic and key points of the news article, highlighting the agreement between Saudi King Salman and Russian President Vladimir Putin to broaden their countries' relations. It presents the information in a clear and logical order. There is a high likelihood that the summary will receive a score of 5, with a small chance of receiving a lower score due to potential minor details that could have been included.
+921	90, 5, 3, 1, 1
+921	90, 5, 3, 1, 1
+933	90, 5, 3, 1, 1
+933	90, 5, 3, 1, 1
+939	90, 5, 3, 1, 1
+939	90, 5, 3, 1, 1
+946	70, 15, 10, 3, 2
+946	The summary does not provide a clear and concise overview of the main topic and key points of the news article. It lacks coherence and fails to cover the essential details mentioned in the article. 
+Therefore, the likelihood of the summary receiving a score of 1 is 90%, a score of 2 is 5%, a score of 3 is 3%, a score of 4 is 1%, and a score of 5 is 1%.
+948	90, 5, 3, 1, 1
+948	90, 5, 3, 1, 1
+961	70, 20, 5, 3, 2
+
+The summary only mentions "Democratic U" without providing any context or key points from the news article. It lacks crucial information such as Senator Joe Manchin's opposition to the temporary spending bill and the reason behind it. The summary is unclear and does not cover the main topic and key points of the news article.
+961	90, 5, 3, 1, 1
+975	90, 5, 3, 1, 1
+975	90, 5, 3, 1, 1
+980	70, 20, 5, 3, 2
+980	80, 15, 3, 1, 1
+981	90, 5, 3, 1, 1
+981	90, 5, 3, 1, 1
+982	90, 5, 3, 1, 1
+982	90, 5, 3, 1, 1
+985	70, 20, 5, 3, 2
+985	20, 30, 40, 5, 5
+990	90, 5, 3, 1, 1
+990	90, 5, 3, 1, 1
+997	70, 15, 10, 3, 2
+997	90, 5, 3, 1, 1
+998	90, 5, 3, 1, 1
+998	90, 5, 3, 1, 1
