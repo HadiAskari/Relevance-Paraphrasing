@@ -55,7 +55,7 @@ The summary covers the main topic and key points of the news article, focusing o
 439	90, 5, 3, 1, 1
 439	90, 5, 3, 1, 1
 461	90, 5, 3, 1, 1
-461	The summary is missing.
+461	0, 0, 20, 30, 50 
 463	100, 0, 0, 0, 0
 463	90, 5, 3, 1, 1
 485	90, 5, 3, 1, 1
@@ -113,7 +113,7 @@ The summary covers the main topic and key points of the news article by mentioni
 766	90, 5, 3, 1, 1
 766	70, 20, 5, 3, 2
 769	90, 5, 3, 1, 1
-769	The summary does not provide any information.
+769	0, 0, 20, 30, 50 
 778	90, 5, 3, 1, 1
 778	90, 5, 3, 1, 1
 835	70, 15, 10, 3, 2
@@ -131,7 +131,7 @@ The summary covers the main topic and key points of the news article by mentioni
 946	90, 5, 3, 1, 1
 946	10, 80, 5, 3, 2
 961	90, 5, 3, 1, 1
-961	The summary is incomplete.
+961	0, 0, 20, 30, 50 
 980	90, 5, 3, 1, 1
 
 The summary covers the main topic of the article, which is the meeting between the Secretary of State and Chinese officials. However, it lacks key points such as the discussion on North Korea's nuclear weapons program and the call for China to exert more pressure on the regime. The summary is clear but misses important details from the news article.

@@ -41,7 +41,6 @@ import copy
 import multiprocessing
 import pickle as pkl
 import openai
-from dotenv import load_dotenv
 import os
 from time import sleep
 

@@ -942,7 +942,7 @@ The summary covers the main topic of jellyfish sightings along the shoreline of 
 2689	90, 5, 3, 1, 1
 2700	90, 5, 3, 1, 1
 2700	90, 5, 3, 1, 1
-2700	70% 20% 5% 3% 2%
+2700	70 20 5 3 2
 2703	70, 20, 5, 3, 2
 2703	70, 20, 5, 3, 2
 2703	90, 5, 3, 1, 1
@@ -1202,7 +1202,7 @@ The summary covers the main topic of Nia Griffith's statements about the differe
 3392	90, 5, 3, 1, 1
 3396	70, 20, 5, 3, 2
 3396	90, 5, 3, 1, 1
-3396	20% likely to get a score of 5, 30% likely to get a score of 4, 20% likely to get a score of 3, 15% likely to get a score of 2, 15% likely to get a score of 1
+3396	20, 30, 20, 15, 15
 3404	70, 20, 5, 3, 2
 3404	90, 5, 3, 1, 1
 3404	70, 20, 5, 3, 2
@@ -1531,9 +1531,7 @@ The summary covers the main topic and key points of the news article, including 
 4230	90, 5, 3, 1, 1
 4231	70, 20, 5, 3, 2
 4231	90, 5, 3, 1, 1
-4231	70,000, with 5.3 million non-British residents, 2.9 million of which are from Europe. Polish nationals make up the largest group, followed by Irish, Romanian, and Portuguese nationals. The UK government is hesitant to give guarantees to EU nationals without similar concessions for UK nationals in the EU. The number of EU nationals working in the UK has increased over the years, while there are about 1.19 million non-EU nationals working in the UK. Just under 1.2 million UK nationals live in the EU, with Spain, Ireland, and France having the most UK migrants. The Irish and Polish governments are making contingency plans for their citizens post-Brexit. 
-
-Evaluation: 90, 5, 3, 1, 1
+4231	90, 5, 3, 1, 1
 4238	90, 5, 3, 1, 1
 4238	90, 5, 3, 1, 1
 4238	90, 5, 3, 1, 1
@@ -1818,15 +1816,7 @@ The summary effectively captures the main topic and key points of the news artic
 5003	90, 5, 3, 1, 1
 5004	90, 5, 3, 1, 1
 5004	95, 3, 1, 0, 1
-5004	90. The World Championships will be held in Budapest, Hungary from 14 July, where Toulson is expected to compete both individually and in synchronised diving with Tonia Couch.
-
-Evaluation:
-- The summary covers the main topic of Lois Toulson winning the gold medal at the FINA Diving World Cup in Kiev with a score of 330.70.
-- The summary mentions the upcoming World Championships in Budapest and Toulson's expected participation in both individual and synchronised diving events.
-- The summary presents the information in a clear and logical order.
-- The summary accurately reflects the key points of the news article.
-
-Therefore, the rating for the summary would be: 95, 3, 1, 0, 1
+5004	95, 3, 1, 0, 1 
 5015	70, 20, 5, 3, 2
 5015	90, 5, 3, 1, 1
 5015	90, 5, 3, 1, 1
@@ -1892,9 +1882,7 @@ Therefore, the rating for the summary would be: 95, 3, 1, 0, 1
 5254	90, 5, 3, 1, 1
 5259	70, 20, 5, 3, 2
 5259	90, 5, 3, 1, 1
-5259	Based on the evaluation criteria, the rating for the summary would be:
-
-90, 5, 3, 1, 1
+5259	90, 5, 3, 1, 1
 5270	90, 5, 3, 1, 1
 5270	90, 5, 3, 1, 1
 5270	90, 5, 3, 1, 1
@@ -1973,9 +1961,7 @@ The summary covers the main topic of the article, which is the demolition of the
 5447	90, 5, 3, 1, 1
 5450	90, 5, 3, 1, 1
 5450	90, 5, 3, 1, 1
-5450	Evans left with a broken nose and Mrs. Evans punched. The two men, Lee Doyle and Gary Hutson, deny the charges of affray. The incident occurred when the couple and their friends were asked to move away from a fireplace by the two men. Mr. Evans claims he was hit by the men and others joined in the attack. Mr. Doyle, however, stated he was trying to defuse the situation. The trial is ongoing.
-
-Evaluation: 90, 5, 3, 1, 1
+5450	90, 5, 3, 1, 1
 5460	90, 5, 3, 1, 1
 5460	70, 20, 5, 3, 2
 5460	90, 5, 3, 1, 1
@@ -2271,9 +2257,7 @@ The summary covers the main topic and key points of the news article, presenting
 6420	90, 5, 3, 1, 1
 6454	90, 5, 3, 1, 1
 6454	90, 5, 3, 1, 1
-6454	Csillag after an investigation found that his treatment plan caused irreversible damage to otherwise healthy teeth of patients, including Jackie Stokes. Mrs. Stokes spent £9,500 on implants in Hungary, but the implants failed and she now has to wear dentures. Dr. Csillag did not respond to attempts to contact him, and the Forest and Ray Medical Care Group stated that he left the company for personal reasons. Mrs. Stokes feels like she has been assaulted, butchered, and robbed of her life savings. The restrictions on Dr. Csillag can only be imposed when he is working in the UK.
-
-Evaluation: 90, 5, 3, 1, 1
+6454	90, 5, 3, 1, 1
 6471	90, 5, 3, 1, 1
 6471	90, 5, 3, 1, 1
 6471	90, 5, 3, 1, 1
@@ -2954,10 +2938,7 @@ The summary covers the main topic of the article, which is the opening of a new 
 8482	90, 5, 3, 1, 1
 8487	90, 5, 3, 1, 1
 8487	90, 5, 3, 1, 1
-8487	Simpson was the only nominee for the council leadership after the previous leader withdrew. He left the council's cabinet and IPPG in 2014 due to disagreements. The IPPG lost 20 councillors in the recent elections. Simpson gained support from various party members for his leadership bid.
-
-Evaluation:
-90, 5, 3, 1, 1
+8487	90, 5, 3, 1, 1
 8504	70, 20, 5, 3, 2
 8504	90, 5, 3, 1, 1
 8504	90, 5, 3, 1, 1
@@ -3099,7 +3080,7 @@ The summary only mentions that all pictures are copyrighted, which is not the ma
 8929	90, 5, 3, 1, 1
 8929	95, 3, 1, 0, 1
 8930	90, 5, 3, 1, 1
-8930	Based on the given article, the summary provided does not cover the main topic and key points of the news article. Therefore, the likelihood of it receiving a score of 1 is 100%.
+8930	90, 5, 3, 1, 1
 8930	90, 5, 3, 1, 1
 8952	90, 5, 3, 1, 1
 8952	20, 60, 10, 5, 5
@@ -3141,7 +3122,7 @@ The summary only mentions that all pictures are copyrighted, which is not the ma
 The summary covers the main topic and key points of the news article, focusing on Jim Broadbent's role as Tommy Butler in the upcoming drama series. It presents the information in a clear and logical order. There is a high likelihood of the summary receiving a score of 5, with a small chance of receiving a lower score due to potential minor details that could have been included.
 9034	90, 5, 3, 1, 1
 9034	90, 5, 3, 1, 1
-9034	org calls for vegetarian alternatives to be mandatory in all schools in response to a ban on pork substitutes in a town in eastern France. The petition has gained over 73,000 supporters and aims to address the issue of religious dietary restrictions in school meals. The debate has sparked discussions on secularism and ethical considerations. France's Agriculture Minister has criticized the petition, advocating for support for French livestock.
+9034	90, 5, 3, 1, 1
 9051	70, 20, 5, 3, 2
 9051	20, 10, 5, 3, 2
 9051	90, 5, 3, 1, 1
@@ -3487,7 +3468,7 @@ The summary covers the main topic of Christian Englander facing trial for throwi
 10133	90, 5, 3, 1, 1
 10136	90, 5, 3, 1, 1
 10136	90, 5, 3, 1, 1
-10136	Palomino was involved in the creation of a male prostitution ring, illicit enrichment, and illegal wiretapping. The general has welcomed the probe, denying any wrongdoing and stating that the allegations are a political vendetta. The investigation was triggered by allegations of abuse by a police captain, with claims that young male police cadets were coerced into having sex with higher-ranking officers. The probe also implicates a senator and alleges complicity of police officials, including Gen Palomino. Wiretapping accusations are also part of the case.
+10136	90, 5, 3, 1, 1
 10148	90, 5, 3, 1, 1
 10148	90, 5, 3, 1, 1
 10148	90, 5, 3, 1, 1

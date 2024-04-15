@@ -992,8 +992,6 @@ The summary covers the main topic and key points of the news article, presenting
 3941	90, 5, 3, 1, 1
 3965	90, 5, 3, 1, 1
 3965	90, 5, 3, 1, 1
-3970	arrest which appeared in The Herald newspaper, stating that the allegations were related to tweets from his Twitter account and were not threatening. He criticized the media for sensationalizing the issue.
-3970	90, 5, 3, 1, 1
 3985	70, 20, 5, 3, 2
 3985	90, 5, 3, 1, 1
 3987	90, 5, 3, 1, 1
@@ -1050,10 +1048,7 @@ The summary covers the main topic and key points of the news article, presenting
 4155	90, 5, 3, 1, 1
 4177	90, 5, 3, 1, 1
 4177	90, 5, 3, 1, 1
-4185	Based on the evaluation criteria, the summary can be rated as follows:
-90, 5, 3, 1, 1
-
-This means that the summary is 90% likely to get a score of 5, 5% likely to get a score of 4, 3% likely to get a score of 3, 1% likely to get a score of 2, and 1% likely to get a score of 1. The summary covers the main topic and key points of the news article in a clear and logical order, with only a small chance of missing some minor details.
+4185	90, 5, 3, 1, 1
 4185	95, 3, 1, 0, 1
 4205	100, 0, 0, 0, 0
 4205	90, 5, 3, 1, 1
@@ -1406,11 +1401,7 @@ The summary perfectly captures the main topic and key points of the news article
 5656	90, 5, 3, 1, 1
 5656	90, 5, 3, 1, 1
 5659	90, 5, 3, 1, 1
-5659	Based on the evaluation criteria, the rating for the summary would be:
-
-90, 5, 3, 1, 1
-
-The summary covers the main topic and key points of the news article in a clear and logical order, making it highly likely to receive a score of 5. There are minor areas where it could be improved, hence the lower likelihood of receiving a score of 4 or below.
+5659	90, 5, 3, 1, 1
 5682	95, 3, 1, 0, 1
 5682	90, 5, 3, 1, 1
 5701	90, 5, 3, 1, 1
@@ -1472,12 +1463,8 @@ The summary covers the main topic and key points of the news article, including 
 5976	90, 5, 3, 1, 1
 5976	90, 5, 3, 1, 1
 5980	90, 5, 3, 1, 1
-5980	ashes in the fire to symbolize clearing out the old year and welcoming the new one. 'First-footing' is another tradition where the first person through the door on Hogmanay brings items like coal, shortbread, or cake to bring good luck to the home. Fire and fireworks play a significant role in the celebrations, linking back to the idea of warding off 'evil spirits'. A fiery parade usually marks the start of Hogmanay, with some participants dressing up in Viking attire. At midnight on New Year's eve, it is customary for people to hold hands and sing 'Auld Lang Syne', a song written by Scottish poet Robert Burns.
-
-90, 5, 3, 1, 1
-5981	90, 5, 3, 1, 1
-
-The summary covers the main topic and key points of the news article, including the location, the incident, the arrests, and the appeal for witnesses. However, it inaccurately states the time of the incident and lacks some details present in the original article, such as the age of the suspects and the specific charges they are facing. Overall, the summary is clear and logically ordered but could be more accurate and detailed.
+5980    90, 5, 3, 1, 1
+5981	90, 5, 3, 1, 1  
 5981	90, 5, 3, 1, 1
 5983	90, 5, 3, 1, 1
 5983	90, 5, 3, 1, 1
@@ -1558,7 +1545,7 @@ The summary covers the main topic and key points of the news article, including 
 6378	90, 5, 3, 1, 1
 6378	90, 5, 3, 1, 1
 6385	90, 5, 3, 1, 1
-6385	Based on the evaluation criteria, the summary is likely to get a score of 5 for covering the main topic and key points of the news article in a clear and logical order. It provides a comprehensive overview of the history and current status of rugby league in London, including the challenges and opportunities faced by the London Broncos. Therefore, the rating for the summary would be 90, 5, 3, 1, 1.
+6385	90, 5, 3, 1, 1
 6395	90, 5, 3, 1, 1
 6395	90, 5, 3, 1, 1
 6399	90, 5, 3, 1, 1
@@ -1851,11 +1838,7 @@ The summary covers the main topic of Ireland's upgraded growth forecasts and the
 7665	90, 5, 3, 1, 1
 7669	90, 5, 3, 1, 1
 7669	95, 3, 1, 0, 1
-7675	Based on the evaluation criteria, the rating for the summary would be:
-
-90, 5, 3, 1, 1
-
-The summary covers the main topic and key points of the news article, presenting them in a clear and logical order. It is highly likely to receive a score of 5, with a small chance of receiving a lower score.
+7675	90, 5, 3, 1, 1
 7675	90, 5, 3, 1, 1
 7680	90, 5, 3, 1, 1
 7680	95, 3, 1, 0, 1
@@ -2100,8 +2083,7 @@ The summary covers the main topic of the article, which is the purchase of 13th 
 8757	95, 3, 1, 0, 1
 8757	90, 5, 3, 1, 1
 8760	90, 5, 3, 1, 1
-8760	Based on the evaluation criteria, the summary can be rated as follows:
-90, 5, 3, 1, 1
+8760	90, 5, 3, 1, 1
 8761	70, 20, 5, 3, 2
 8761	70, 20, 5, 3, 2
 8764	70, 20, 5, 3, 2
@@ -2517,9 +2499,7 @@ The summary covers all the main topics and key points of the news article in a c
 10599	95, 3, 1, 1, 0
 10599	90, 5, 3, 1, 1
 10608	70, 20, 5, 3, 2
-10608	The article discusses the experience of a woman using a cashback website to make purchases, highlighting the long wait times for receiving cashback and the importance of understanding the terms and conditions of such websites. 
-
-Evaluation: 90, 5, 3, 1, 1
+10608	90, 5, 3, 1, 1
 10614	95, 3, 1, 0, 1
 10614	95, 3, 1, 0, 1
 10634	90, 5, 3, 1, 1
@@ -2608,7 +2588,7 @@ The summary covers the main topic and key points of the news article, presenting
 10973	90, 5, 3, 1, 1
 10978	90, 5, 3, 1, 1
 10978	90, 5, 3, 1, 1
-10979	Based on the evaluation criteria, the summary is rated as follows: 70, 20, 5, 3, 2
+10979	70, 20, 5, 3, 2
 10979	70, 20, 5, 3, 2
 11000	90, 5, 3, 1, 1
 11000	90, 5, 3, 1, 1

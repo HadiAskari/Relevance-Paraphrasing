@@ -1113,11 +1113,9 @@ The summary covers the main topic and key points of the news article, including 
 4347	90, 5, 3, 1, 1
 4347	90, 5, 3, 1, 1
 4356	90, 5, 3, 1, 1
-4356	May also highlighted the potential dangers of a minority government led by Ed Miliband and supported by the SNP, who are against new data retention powers
-Theresa May's warning comes as the Data Retention and Investigatory Powers Act is set to expire next year, posing a threat to national security
-Overall, the summary covers the main topic and key points of the news article in a clear and logical order.
+4356	90, 5, 3, 1, 1
 
-90, 5, 3, 1, 1
+
 4357	90, 5, 3, 1, 1
 4357	90, 5, 3, 1, 1
 4360	90, 5, 3, 1, 1
@@ -1197,7 +1195,7 @@ The summary covers the main topic of Alistair Brownlee's victory in the World Tr
 4691	90, 5, 3, 1, 1
 4691	90, 5, 3, 1, 1
 4692	90, 5, 3, 1, 1
-4692	95% likely to get a score of 5, 3% likely to get a score of 4, 1% likely to get a score of 3, 1% likely to get a score of 2, 0% likely to get a score of 1
+4692	95, 3, 1, 1, 0
 4699	90, 5, 3, 1, 1
 4699	90, 5, 3, 1, 1
 4705	90, 5, 3, 1, 1
@@ -2157,7 +2155,7 @@ The summary covers the main topic and key points of the news article, highlighti
 9194	90, 5, 3, 1, 1
 9194	90, 5, 3, 1, 1
 9198	90, 5, 3, 1, 1
-9198	Based on the evaluation criteria, the summary is likely to get a score of 90, 5, 3, 1, 1. It covers the main topic and key points of the news article in a clear and logical order, making it highly likely to receive a high score.
+9198	90, 5, 3, 1, 1
 9202	90, 5, 3, 1, 1
 9202	90, 5, 3, 1, 1
 9212	90, 5, 3, 1, 1
@@ -2615,13 +2613,9 @@ The summary covers the main topic and key points of the news article, including 
 11351	90, 5, 3, 1, 1
 11351	90, 5, 3, 1, 1
 11359	90, 5, 3, 1, 1
-11359	Phil, Richards explains that she did not intend to order another drink at the bar, but was asked to leave by the maître d' after approaching strangers and causing a scene
-She eventually left the hotel after being threatened with police involvement for trespassing
-Richards has a history of battling alcoholism and her recent relapse has strained her relationship with her sister
-She has since entered a rehab facility in Malibu
-The summary covers the main topic of Kim Richards' arrest at the Beverly Hills Hotel and her subsequent interview with Dr. Phil, as well as her struggles with alcoholism and family relationships. It presents the key points in a clear and logical order, providing a concise overview of the article. 
+11359	90, 5, 3, 1, 1
 
-90, 5, 3, 1, 1
+
 11386	90, 5, 3, 1, 1
 11386	90, 5, 3, 1, 1
 11390	90, 5, 3, 1, 1

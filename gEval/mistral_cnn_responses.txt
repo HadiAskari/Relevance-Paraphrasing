@@ -103,7 +103,7 @@ The summary covers the main topic of ongoing protests in Baltimore after Freddie
 513	70, 20, 5, 3, 2
 513	90, 5, 3, 1, 1
 523	90, 5, 3, 1, 1
-523	Evaluation: 70, 20, 5, 3, 2
+523	70, 20, 5, 3, 2
 
 The summary covers the main topic of the article, which is the story of Lot in Genesis, and includes key points such as the destruction of Sodom and Gomorrah. However, it lacks some important details and context provided in the original article, such as the moral and religious implications of the story. The summary presents the information in a clear and logical order, but it could be more comprehensive.
 534	90, 5, 3, 1, 1
@@ -1377,13 +1377,9 @@ The summary covers the main topic of Bournemouth's decision to hold off on expan
 5447	90, 5, 3, 1, 1
 5447	90, 5, 3, 1, 1
 5455	90, 5, 3, 1, 1
-5455	Based on the evaluation criteria, the rating for the summary would be:
-
-90, 5, 3, 1, 1
+5455	90, 5, 3, 1, 1
 5456	70, 20, 5, 3, 2
-5456	Based on the evaluation criteria provided, the rating for the summary would be:
-
-10, 5, 2, 1, 1
+5456	10, 5, 2, 1, 1
 5466	90, 5, 3, 1, 1
 5466	90, 5, 3, 1, 1
 5468	70, 20, 5, 3, 2
@@ -2025,8 +2021,7 @@ The summary covers the main topic of Iceland becoming a popular filming location
 8361	90, 5, 3, 1, 1
 8361	90, 5, 3, 1, 1
 8384	90, 5, 3, 1, 1
-8384	
-80, 10, 5, 3, 2
+8384	80, 10, 5, 3, 2
 8409	90, 5, 3, 1, 1
 8409	90, 5, 3, 1, 1
 8412	90, 5, 3, 1, 1
@@ -2491,8 +2486,6 @@ The summary covers the main topic of the article, which is the Delta flight from
 10452	90, 5, 3, 1, 1
 10461	90, 5, 3, 1, 1
 10461	90, 5, 3, 1, 1
-10469	Maacaron, offers over 100 organic and natural skincare recipes using ingredients like coconut oil, cream cheese, apple cider vinegar, and sesame oil. Maacaron, a pharmacist and skincare expert, believes in the effectiveness of natural alternatives over expensive store-bought products. The book aims to debunk skincare myths and provide affordable solutions for various skin issues. Maacaron's recipes include face masks, shampoos, toners, and serums, all made from easily accessible ingredients. The author emphasizes the benefits of using natural products for healthier and younger-looking skin.
-10469	90, 5, 3, 1, 1
 10473	90, 5, 3, 1, 1
 10473	70, 20, 5, 3, 2
 10482	90, 5, 3, 1, 1

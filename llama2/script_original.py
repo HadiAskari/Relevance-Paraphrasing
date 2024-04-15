@@ -19,7 +19,8 @@ import argparse
 import pickle as pkl
 from rouge_score import rouge_scorer
 import matplotlib.pyplot as plt
-from statistics import mean 
+from evaluate import load
+import random
 
 
 #### LOADING DATASETS
@@ -42,14 +43,14 @@ if args.dataset == 'cnn':      #USE
     data = load_dataset("cnn_dailymail", '3.0.0')
     article_key = 'article'
     summary_key = 'highlights'
-    with open('data/cnn.pkl', 'rb') as f:
+    with open('temp0/data_original/cnn_capped_random.pkl', 'rb') as f:
       summaries=pkl.load(f)
 
 elif args.dataset == 'xsum':   #USE
     data = load_dataset("xsum")
     article_key = 'document'
     summary_key = 'summary'
-    with open('data/xsum_capped_random.pkl', 'rb') as f:
+    with open('temp0/data_original/xsum_capped_random.pkl', 'rb') as f:
       summaries=pkl.load(f)
 
 elif args.dataset == 'news':   #USE
@@ -59,7 +60,7 @@ elif args.dataset == 'news':   #USE
     data = DatasetDict({
         'train': data['test'],
         'test': data['train']})
-    with open('data/news_capped_random.pkl', 'rb') as f:
+    with open('temp0/data_original/news_capped_random.pkl', 'rb') as f:
       summaries=pkl.load(f)
     
 elif args.dataset == 'reddit':   #USE
@@ -75,7 +76,7 @@ elif args.dataset == 'reddit':   #USE
         'train': train_testvalid['train'],
         'test': test_valid['test'],
         'validation': test_valid['train']})
-    with open('data/reddit_capped_random.pkl', 'rb') as f:
+    with open('temp0/data_original/reddit_capped_random.pkl', 'rb') as f:
       summaries=pkl.load(f)
       
 else:
@@ -86,18 +87,25 @@ else:
 
 data = data['test']
 data
+### For 10% sample
 
+random.seed(42)
+ten_percent=int(len(data)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(data)), ten_percent)
+random_indices.sort()
+# random_indices
+data=data.select(random_indices)
 
 bad_index=[]
-for idx,sum in enumerate(summaries):
-  if not sum:
+for idx,summ in enumerate(summaries):
+  if not summ:
       bad_index.append(idx)
 
 data=data.select(i for i in range(len(data)) 
                  if i not in set(bad_index))
-#print(data)
-
-# data=data.select(range(10))
+print(data)
+#data=data.select(range(100))
 
 def generate_n_segments(a, n=10): #NEW
   k, m = divmod(len(a), n)
@@ -119,43 +127,18 @@ data = data.map(tokenize, num_proc=multiprocessing.cpu_count())
 
 # scorer = rouge_scorer.RougeScorer(['rouge2'],use_stemmer=True)
 
-# def get_overlap_scores(sentences, document):
-#     corpus = sentences + document
-#     vect = TfidfVectorizer()
-#     tfidf = vect.fit_transform(corpus)
-#     similarities = (tfidf * tfidf.T).toarray()
+def get_overlap_scores(sentences, document):
+    corpus = sentences + document
+    vect = TfidfVectorizer()
+    tfidf = vect.fit_transform(corpus)
+    similarities = (tfidf * tfidf.T).toarray()
 
-#     return similarities[:len(sentences), len(sentences):]
+    return similarities[:len(sentences), len(sentences):]
 
-def get_overlap_scores_rouge(sentences, document):
-    rouge = evaluate.load('rouge')
-    res = np.zeros(shape=(1, len(document)))
-    #print(res.shape)
-    for idx,doc in enumerate(document):
-      temp=[]
-      for sent in sentences:
-        rouge_res=rouge.compute(predictions=[sent], references=[doc])
-        rouge_res=rouge_res['rouge1']
-        temp.append(rouge_res)
-      #print(temp)
-      avg=mean(temp)
-      res[0,idx]=avg
-    return res
-        
-
-
-# print(data["article"][0])
-# print(data["highlights"][0])
-# scores = get_overlap_scores_rouge(data["highlights"][0],data["article"][0])
-# print(scores)
-
-# exit(0)
 
 def get_summary_indices_modified(article, summary, top_k=1, tolerance=0.1): #NEW
 
-    scores = get_overlap_scores_rouge(summary, article)
-    
-    # print(scores)
+    scores = get_overlap_scores(summary, article)
 
     idx = scores.argmax(axis=1)
     false_idxs = np.where(scores.max(axis=1) == 0)
@@ -238,7 +221,7 @@ for highlight in data['highlights']:
 
 
 
-# pipe = pipeline("summarization",model = "google/pegasus-cnn_dailymail", tokenizer = "google/pegasus-cnn_dailymail",device=args.device)
+# pipe = pipeline("summarization",model = "google/pegasus-cnn_dailymail", tokenizer = "google/pegasus-cnn_dailymail",```        ````=args.device)
 
 
 # import time
@@ -301,7 +284,7 @@ x = [j for j in range(10)]
 
 plt.xlabel("Segment")
 plt.ylabel("#Total sentences across all summaries")
-plt.title("Segment vs frequency [{}-LlaMa2]".format(args.dataset))
+plt.title("Segment vs frequency [{}-GPT-3.5-Turbo]".format(args.dataset))
 markers=[0,1,2,3,4,5,6,7,8,9]
 
 
@@ -309,29 +292,29 @@ markers=[0,1,2,3,4,5,6,7,8,9]
 if args.dataset == 'cnn':      #USE
 
   ax = plt.gca()
-  ax.set_ylim([0, 22000])
+  ax.set_ylim([0, 16000])
 
 elif args.dataset == 'xsum':   #USE
 
   ax = plt.gca()
-  ax.set_ylim([0, 18000])
+  ax.set_ylim([0, 14000])
 
 elif args.dataset == 'news':   #USE
 
   ax = plt.gca()
-  ax.set_ylim([0, 1600])
+  ax.set_ylim([0, 1200])
     
 elif args.dataset == 'reddit':   #USE
 
   ax = plt.gca()
-  ax.set_ylim([0, 6000])
+  ax.set_ylim([0, 4000])
 
 
 plt.plot(x, cumm_list1,'-rx', label="Generated", markevery=markers)
 plt.plot(x, cumm_list2,'-bx', label="Gold", markevery=markers)
 plt.xticks(x)
 plt.legend()
-plt.savefig('results/LlaMa2-{}-capped_random-rouge.png'.format(args.dataset))
+plt.savefig('results/temp0/original/LlaMa2-{}.png'.format(args.dataset))
 
 highlights = []
 model_s = []
@@ -350,19 +333,44 @@ print("==> Comparing generated summaries with gold summaries")
 results = rouge.compute(predictions=model_s, references=highlights)
 print(results)
 
-def kl_divergence(p, q):
-    """
-    Calculates the KL divergence between two probability distributions p and q.
-    """
-    return np.sum(np.where(p != 0, p * np.log(p / q), 0))
+# def kl_divergence(p, q):
+#     """
+#     Calculates the KL divergence between two probability distributions p and q.
+#     """
+#     return np.sum(np.where(p != 0, p * np.log(p / q), 0))
 
-kl=kl_divergence(np.array(cumm_list1)/np.sum(cumm_list1), np.array(cumm_list2)/np.sum(cumm_list2))
+# kl=kl_divergence(np.array(cumm_list1)/np.sum(cumm_list1), np.array(cumm_list2)/np.sum(cumm_list2))
 
-results['KL_Divergence']=kl
+# results['KL_Divergence']=kl
+
+def get_bertscore(data):
+    
+    highlights = []
+    model_s = []
+
+
+    for j in data['highlights']:
+        highlights.append(' '.join(j))
+
+    for k in data['model_summaries']:
+        model_s.append(' '.join(k))
+    
+    bertscore = load("bertscore")
+    
+    results = bertscore.compute(predictions=model_s, references=highlights, lang="en", device='cuda:2')
+    mean_precision=sum(results['precision'])/len(results['precision'])
+    mean_recall=sum(results['recall'])/len(results['recall'])
+    mean_f1=sum(results['f1'])/len(results['f1'])
+    
+    return mean_f1
+  
+bertscore=get_bertscore(data)
+
+results['Bertscore']=bertscore
 
 # df=pd.DataFrame.from_dict(results)
 df=pd.DataFrame([results])
 
-df.to_csv('results/LlaMa2-{}-capped_random-rouge.csv'.format(args.dataset))
+df.to_csv('results/temp0/original/LlaMa2-{}.csv'.format(args.dataset))
 
-data.save_to_disk('saved_models/LlaMa2-{}-capped_random-rouge'.format(args.dataset))
+data.save_to_disk('saved_models/original-LlaMa2-{}'.format(args.dataset))

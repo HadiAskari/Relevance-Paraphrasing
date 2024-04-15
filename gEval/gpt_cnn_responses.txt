@@ -3302,7 +3302,7 @@ The summary covers the main topic of the news article, which is the development 
 10138	90, 5, 3, 1, 1
 10143	90, 5, 3, 1, 1
 10143	90, 5, 3, 1, 1
-10143	Based on the evaluation criteria, the rating for the summary would be: 90, 5, 3, 1, 1
+10143	90, 5, 3, 1, 1
 10145	90, 5, 3, 1, 1
 10145	90, 5, 3, 1, 1
 10145	90, 5, 3, 1, 1

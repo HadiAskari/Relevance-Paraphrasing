@@ -82,9 +82,9 @@
 339	90, 5, 3, 1, 1
 348	95, 3, 1, 0, 1
 348	90, 5, 3, 1, 1
-350	The summary covers the main topic of Snap Inc's new product, Spectacles, and its features. It mentions the price, recording capabilities, design, and potential market reception compared to Google Glass. The summary also touches on the company's rebranding and strategic shift. However, it lacks details about the creator's inspiration for the product and the limited distribution strategy. Overall, the summary presents the key points in a clear and logical order, but could benefit from more comprehensive coverage of the article. 
+350	90, 5, 3, 1, 1 
 
-90, 5, 3, 1, 1
+
 350	20, 10, 5, 3, 2
 354	90, 5, 3, 1, 1
 354	90, 5, 3, 1, 1
@@ -100,12 +100,8 @@ The summary covers the main topic of the article, which is the temporary repairs
 372	90, 5, 3, 1, 1
 384	90, 5, 3, 1, 1
 384	90, 5, 3, 1, 1
-397	Evans, currently deputy permanent secretary to the Welsh Government, will succeed Ian Jones in a new role from October. He is a highly respected leader and was educated at Ysgol Penweddig, Aberystwyth, and graduated in economics at Swansea University. He has previous experience as director of Business in the Community Wales and as a member of the Welsh Language Board.
-
-Evaluation: 90, 5, 3, 1, 1
-397	Evans, currently deputy permanent secretary to the Welsh Government, will succeed Ian Jones in a new role from October. He is a highly respected leader and was educated at Ysgol Penweddig, Aberystwyth, and graduated in economics at Swansea University. He has previous experience as director of Business in the Community Wales and as a member of the Welsh Language Board.
-
-Evaluation: 90, 5, 3, 1, 1
+397	90, 5, 3, 1, 1 
+397	90, 5, 3, 1, 1 
 401	90, 5, 3, 1, 1
 401	90, 5, 3, 1, 1
 403	90, 5, 3, 1, 1
@@ -174,8 +170,6 @@ The summary covers the main topic and key points of the news article, presenting
 686	90, 5, 3, 1, 1
 702	90, 5, 3, 1, 1
 702	90, 5, 3, 1, 1
-704	70 points in the diving competition at the Olympics. Despite a disappointing performance, Daley remains determined to compete in Tokyo 2020. China's Chen Aisen won the gold medal with a score of 585.30 points.
-704	90, 5, 3, 1, 1
 723	90, 5, 3, 1, 1
 723	90, 5, 3, 1, 1
 729	90, 5, 3, 1, 1
@@ -388,10 +382,6 @@ The summary covers the main topic and key points of the news article, presenting
 1662	90, 5, 3, 1, 1
 1669	90, 5, 3, 1, 1
 1669	90, 5, 3, 1, 1
-1672	Adesina wins the World Food Prize for his efforts in improving African agriculture by supporting rural entrepreneurs to sell seeds and fertilisers. He emphasizes the need to make agriculture a business to uplift smallholder farmers and address the issue of undernourishment in Africa. The prize aims to recognize efforts to increase food quality and quantity.
-1672	Adesina wins the World Food Prize for his efforts in improving African agriculture by providing farmers with seeds and fertilisers. He aims to make agriculture a business to uplift smallholder farmers and inspire the next generation. The prize will be awarded at the Borlaug Dialogue symposium in the US. 
-
-90, 5, 3, 1, 1
 1679	90, 5, 3, 1, 1
 1679	90, 5, 3, 1, 1
 1681	90, 5, 3, 1, 1
@@ -428,10 +418,6 @@ The summary covers the main topic and key points of the news article, presenting
 1791	90, 5, 3, 1, 1
 1794	90, 5, 3, 1, 1
 1794	90, 5, 3, 1, 1
-1796	10, 80, 5, 3, 2
-1796	50 points at 6,088.05, with Old Mutual shares dropping over 10%. Glencore saw a 7% increase in shares after announcing debt reduction plans, while Centrica rose 2.6% and Tui reported a 23% jump in earnings. The pound slipped against the dollar but rose against the euro.
-
-Evaluation: 90, 5, 3, 1, 1
 1799	90, 5, 3, 1, 1
 1799	90, 5, 3, 1, 1
 1803	90, 5, 3, 1, 1
@@ -470,13 +456,8 @@ The summary briefly mentions Mr. Zhou's disappearance and the speculation that h
 1983	80, 15, 3, 1, 1
 1992	90, 5, 3, 1, 1
 1992	90, 5, 3, 1, 1
-1995	Pomsel, a former secretary to Joseph Goebbels, claimed she knew nothing of the Holocaust and felt no guilt. She joined the Nazi party for a government job and maintained she was not guilty for the actions of her superiors. She passed away in Munich at the age of 106.
-
-Evaluation:
-90, 5, 3, 1, 1
-1995	Pomsel, a former secretary to Joseph Goebbels, claimed she knew nothing of the Holocaust and felt no guilt. She joined the Nazi party for a government job and maintained she was not guilty for the actions of her superiors. She passed away in Munich at the age of 106.
-
-Evaluation: 90, 5, 3, 1, 1
+1995	90, 5, 3, 1, 1
+1995	90, 5, 3, 1, 1
 1998	90, 5, 3, 1, 1
 1998	90, 5, 3, 1, 1
 2003	90, 5, 3, 1, 1
@@ -843,8 +824,8 @@ The summary covers the main topic of jellyfish blooms appearing along the shorel
 3404	90, 5, 3, 1, 1
 3408	90, 5, 3, 1, 1
 3408	90, 5, 3, 1, 1
-3410	70% likely to get a score of 5, 20% likely to get a score of 4, 5% likely to get a score of 3, 3% likely to get a score of 2, 2% likely to get a score of 1
-3410	70% likely to get a score of 5, 20% likely to get a score of 4, 5% likely to get a score of 3, 3% likely to get a score of 2, 2% likely to get a score of 1
+3410	70, 20, 5, 3, 2 
+3410	70, 20, 5, 3, 2 
 3414	90, 5, 3, 1, 1
 3414	90, 5, 3, 1, 1
 3415	90, 5, 3, 1, 1
@@ -924,9 +905,7 @@ The summary covers the main topic of the news article, which is the completion o
 3708	50, 30, 10, 5, 5
 3708	50, 30, 10, 5, 5
 3713	90, 5, 3, 1, 1
-3713	Poots expressed his reluctance to work with Sinn Féin due to their association with the IRA and past violent activities. Other DUP members also shared similar sentiments but acknowledged the need to work with Sinn Féin for the sake of Northern Ireland's peace. Mr Hamilton, the health minister, faced criticism over the DUP's policy of limited ministerial duties. He plans to resume his duties for one day next week.
-
-Evaluation: 90, 5, 3, 1, 1
+3713	90, 5, 3, 1, 1
 3716	90, 5, 3, 1, 1
 3716	70, 20, 5, 3, 2
 3719	90, 5, 3, 1, 1
@@ -1063,13 +1042,8 @@ The summary covers the main topic of Bradley Lowery's diagnosis with neuroblasto
 4220	90, 5, 3, 1, 1
 4230	90, 5, 3, 1, 1
 4230	90, 5, 3, 1, 1
-4231	70,000, with 5.3 million non-British residents, 2.9 million of whom are from Europe. Polish nationals make up the largest group, followed by Irish, Romanian, and Portuguese nationals. The UK government is hesitant to give guarantees to EU nationals without similar concessions for UK nationals in the EU. The number of EU nationals working in the UK has increased over the years, while there are about 1.19 million non-UK nationals from outside the EU working in the UK. Just under 1.2 million UK nationals live in the rest of the EU, with Spain having the most UK nationals. The Irish and Polish governments are making contingency plans for their citizens in the UK. 
-
-Evaluation:
-90, 5, 3, 1, 1
+4231    90, 5, 3, 1, 1
 4231	0, 80, 10, 5, 3
-
-The summary is likely to get a score of 5 (100%) as it accurately mentions the approximate number of EU nationals living in the UK. It is also likely to get a score of 4 (80%) as it fails to mention key points such as the number of UK nationals living in the EU, the breakdown of EU nationalities in the UK, and the changes in the number of working EU nationals over the years. It is likely to get a score of 3 (10%) as it lacks details about the contingency plans of the Irish and Polish governments. It is likely to get a score of 2 (5%) as it does not provide information about the number of non-UK nationals from outside the EU working in the UK. Finally, it is likely to get a score of 1 (3%) as it does not mention the statistics on UK nationals living in different EU countries.
 4238	90, 5, 3, 1, 1
 4238	90, 5, 3, 1, 1
 4240	90, 5, 3, 1, 1
@@ -1126,9 +1100,7 @@ The summary covers the main topic and key points of the news article, including 
 4435	90, 5, 3, 1, 1
 4445	90, 5, 3, 1, 1
 4445	90, 5, 3, 1, 1
-4448	Humala aimed to reduce Peru's poverty to 15% by the end of his term in 2016. He acknowledged that his government had not achieved all its goals and mentioned a reshuffling of his cabinet. Mr Humala vowed to extend social programs to lift more people out of poverty and address social discontent. 
-
-90, 5, 3, 1, 1
+4448	90, 5, 3, 1, 1
 4448	90, 5, 3, 1, 1
 4453	90, 5, 3, 1, 1
 4453	90, 5, 3, 1, 1
@@ -1174,12 +1146,8 @@ The summary covers the main topic and key points of the news article, including 
 4614	90, 5, 3, 1, 1
 4625	90, 5, 3, 1, 1
 4625	90, 5, 3, 1, 1
-4637	25m loan granted for the re-development of its stadium. The club faces a winding-up petition from HMRC over £166,000, with Mr Mackintosh taking some responsibility for the situation. He stated that due diligence was carried out before the loan was granted, and safeguards are now in place to recover the money.
-
-90, 5, 3, 1, 1
-4637	25m loan to Northampton Town in 2013, is now facing backlash as the money has not been paid back. The club is currently facing financial issues, including a winding-up petition from HMRC. Mackintosh claims that due diligence was carried out before the loan was granted, but acknowledges his responsibility in the situation. The loan was intended for the re-development of the club's stadium, but now the council is working to recover the funds.
-
-90, 5, 3, 1, 1
+4637    90, 5, 3, 1, 1
+4637	90, 5, 3, 1, 1
 4664	90, 5, 3, 1, 1
 4664	90, 5, 3, 1, 1
 4674	90, 5, 3, 1, 1
@@ -1240,10 +1208,6 @@ The summary covers the main topic and key points of the news article, including 
 4890	90, 5, 3, 1, 1
 4908	90, 5, 3, 1, 1
 4908	90, 5, 3, 1, 1
-4912	Maduro plans to keep a room in the presidential palace as a monument to Mr Chavez's revolution. He is running against Henrique Capriles in the upcoming elections, with Capriles questioning Maduro's ability to lead. Maduro claims to be Chavez's natural successor and has even seen a bird as a sign from Chavez. Capriles is confident he can win despite polls showing Maduro in the lead.
-4912	Maduro plans to keep a room in the presidential palace as a monument to Mr Chavez's revolution. He is running against Henrique Capriles in the upcoming elections, with Capriles questioning Maduro's ability to lead. Maduro claims to be Chavez's natural successor and has seen a bird as a sign of Chavez's blessing. Capriles mocks Maduro for this claim and believes he can win the election despite polls showing Maduro in the lead. 
-
-90, 5, 3, 1, 1
 4919	90, 5, 3, 1, 1
 4919	90, 5, 3, 1, 1
 4926	90, 5, 3, 1, 1
@@ -1268,12 +1232,8 @@ The summary covers the main topic and key points of the news article, including 
 5001	90, 5, 3, 1, 1
 5003	90, 5, 3, 1, 1
 5003	90, 5, 3, 1, 1
-5004	90. The victory came as a surprise to Toulson, who expressed some dissatisfaction with his dives. He is now preparing for the World Championships in Budapest, where he will compete individually and in synchronised diving with Tonia Couch.
-
-90, 5, 3, 1, 1
-5004	90. The World Championships will be held in Budapest, Hungary from 14 July, where Toulson is expected to compete individually and in synchronised diving with Tonia Couch. Toulson expressed surprise at her victory and mentioned that she is not completely satisfied with her dives yet.
-
-Evaluation: 90, 5, 3, 1, 1
+5004	90, 5, 3, 1, 1
+5004	90, 5, 3, 1, 1
 5015	95, 3, 1, 0, 1
 5015	90, 5, 3, 1, 1
 5024	70, 20, 5, 3, 2
@@ -1281,7 +1241,7 @@ Evaluation: 90, 5, 3, 1, 1
 5044	90, 5, 3, 1, 1
 5044	90, 5, 3, 1, 1
 5050	90, 5, 3, 1, 1
-5050	90, 5, 3, 1, 1, 0
+5050	90, 5, 3, 1, 1
 5064	90, 5, 3, 1, 1
 5064	90, 5, 3, 1, 1
 5068	90, 5, 3, 1, 1
@@ -1317,11 +1277,7 @@ Evaluation: 90, 5, 3, 1, 1
 5254	90, 5, 3, 1, 1
 5254	90, 5, 3, 1, 1
 5259	70, 20, 5, 3, 2
-5259	Based on the evaluation criteria, the rating for the summary would be:
-
-90, 5, 3, 1, 1
-
-The summary covers the main topic and key points of the news article, focusing on the accusation of diverting funds meant for arms purchase. However, it lacks details about the investigation into phantom contracts and the involvement of other individuals like former national security adviser Sambu Dasuki. Overall, the summary is likely to receive a high score of 5, with a small chance of receiving a lower score.
+5259	90, 5, 3, 1, 1
 5270	90, 5, 3, 1, 1
 5270	90, 5, 3, 1, 1
 5273	90, 5, 3, 1, 1
@@ -1454,8 +1410,6 @@ The summary covers the main topic of the article, which is the fire at the ICL U
 5858	90, 5, 3, 1, 1
 5868	90, 5, 3, 1, 1
 5868	90, 5, 3, 1, 1
-5873	Merkel emphasizes the need for Europe to take control of its destiny, following disagreements with Trump over climate change and NATO. She also highlights the importance of the relationship with France's Macron. Merkel's strong stance is seen as a move to appeal to German voters ahead of the upcoming elections.
-5873	Merkel emphasizes the need for Europe to take control of its own destiny, following disagreements with Trump over climate change and NATO. She also highlights the importance of the relationship with France's new president. Merkel's strong stance is seen as a move to appeal to German voters ahead of the upcoming elections.
 5886	90, 5, 3, 1, 1
 5886	90, 5, 3, 1, 1
 5897	90, 5, 3, 1, 1
@@ -1706,8 +1660,6 @@ The summary covers the main topic and key points of the news article, focusing o
 6972	95, 3, 1, 1, 0
 
 The summary covers the main topic and key points of the news article, presenting them in a clear and logical order. It accurately mentions the time, location, spread of the fire, damage caused, firefighting efforts, and the accidental cause of the fire. The only minor issue is the lack of mention of the two dogs that died in the fire, which is why it is rated 95% likely to get a score of 5.
-6978	Based on the provided article, the summary is incomplete and does not cover the main topic and key points. Therefore, the likelihood of it receiving a score of 1 is 100%.
-6978	80, 15, 3, 1, 1
 6983	70, 20, 5, 3, 2
 6983	50, 30, 15, 3, 2
 6993	5, 90, 5, 0, 0
@@ -1953,9 +1905,7 @@ The summary covers the main topic and key points of the news article, including 
 8082	90, 5, 3, 1, 1
 8082	90, 5, 3, 1, 1
 8089	90, 5, 3, 1, 1
-8089	Stevenson, who went missing on 18 October from her home in Tranmere, was found dead on land in Bromborough. Her family has been informed and a post-mortem examination is scheduled. Friends joined the search efforts and CCTV footage was released. A man was arrested on suspicion of murder. 
-
-90, 5, 3, 1, 1
+8089    90, 5, 3, 1, 1
 8106	90, 5, 3, 1, 1
 8106	90, 5, 3, 1, 1
 8116	90, 5, 3, 1, 1
@@ -1997,9 +1947,7 @@ The summary covers the main topic and key points of the news article, including 
 8235	90, 5, 3, 1, 1
 8235	90, 5, 3, 1, 1
 8243	50, 30, 15, 3, 2
-8243	Haugh, 25, was stabbed in a laneway in the Marian estate. Robbie Walsh was charged with assault causing serious harm. Two other men were released without charge. Det Sgt Padraig Frawley detailed the events leading to Mr Haugh's death. Mr Haugh was pronounced dead at Limerick University Hospital. 
-
-90, 5, 3, 1, 1
+8243	90, 5, 3, 1, 1
 8249	70, 20, 5, 3, 2
 8249	70, 20, 5, 3, 2
 8272	50, 30, 15, 3, 2
@@ -2016,9 +1964,9 @@ The summary covers the main topic of the news article, which is the Peruvian arm
 8307	90, 5, 3, 1, 1
 8320	90, 5, 3, 1, 1
 8320	90, 5, 3, 1, 1
-8328	Based on the evaluation criteria, the rating for the summary would be:
+8328	90, 5, 3, 1, 1
 
-90, 5, 3, 1, 1
+
 
 The summary covers the main topic and key points of the news article, but it lacks the details and emotional impact present in the original article. It presents the information in a clear and logical order, but it misses important details about the family's struggles and the community's response. Overall, the summary is likely to receive a high score, but may lose points for not capturing the full depth of the original article.
 8328	90, 5, 3, 1, 1
@@ -2048,10 +1996,7 @@ The summary covers the main topic and key points of the news article, but it lac
 8478	90, 5, 3, 1, 1
 8482	90, 5, 3, 1, 1
 8482	90, 5, 3, 1, 1
-8487	Simpson was the only nominee for the council leadership after the previous leader withdrew. He left the council's cabinet and IPPG in 2014 due to disagreements. The IPPG lost 20 councillors in the recent elections. Simpson gained support from various party members in his bid for leadership.
-
-Evaluation:
-90, 5, 3, 1, 1
+8487    90, 5, 3, 1, 1
 8487	90, 5, 3, 1, 1
 
 The summary accurately captures the main topic and key points of the news article, mentioning John Simpson as the only candidate for leadership after Jamie Adams withdrew. It presents the information in a clear and logical order. There is a high likelihood that this summary would receive a score of 5.
@@ -2101,10 +2046,6 @@ The summary accurately captures the main topic and key points of the news articl
 8752	90, 5, 3, 1, 1
 8756	90, 5, 3, 1, 1
 8756	90, 5, 3, 1, 1
-8757	60m in damages after a lengthy legal battle. The judge described the evidence against Colm Murphy and Seamus Daly as overwhelming, with both men found liable for assisting in the bombing. The families are determined to pursue enforcement of the damages and hope for criminal prosecutions in the future. Lord Brennan QC stated that the verdict against Murphy and Daly was damning, with no prospects for appeal. The families had previously won a civil case against four men, including Murphy and Daly, but had not received any compensation. Despite appeals, Murphy and Daly were ordered to face a retrial, leading to the recent judgement. The families are now seeking justice and closure after years of legal battles. 
-
-Evaluation: 90, 5, 3, 1, 1
-8757	20m in damages after a lengthy legal battle. The judge described the evidence against Colm Murphy and Seamus Daly as overwhelming, with both men found liable for assisting in the bombing. The families are determined to pursue enforcement of the damages, and hope for criminal prosecutions in the future. Lord Brennan QC stated that the prospects for appeal are zero, and the legal battle should come to an end. The verdict marks a landmark civil action against alleged members of a terrorist organization.
 8760	90, 5, 3, 1, 1
 8760	90, 5, 3, 1, 1
 8761	90, 5, 3, 1, 1
@@ -2114,13 +2055,7 @@ Evaluation: 90, 5, 3, 1, 1
 8769	90, 5, 3, 1, 1
 8769	90, 5, 3, 1, 1
 8775	90, 5, 3, 1, 1
-8775	uk] or #bbcscotlandpics on Instagram for a chance to be featured.
-
-    1. 90%
-    2. 5%
-    3. 3%
-    4. 1%
-    5. 1%
+8775	90, 5, 3, 1, 1
 8776	90, 5, 3, 1, 1
 8776	90, 5, 3, 1, 1
 8777	90, 5, 3, 1, 1
@@ -2143,9 +2078,7 @@ Evaluation: 90, 5, 3, 1, 1
 8850	90, 5, 3, 1, 1
 8860	90, 5, 3, 1, 1
 8860	90, 5, 3, 1, 1
-8878	Yellen expressed concerns about high valuations in the market but did not see any bubbles forming. Chinese shares experienced significant declines, with the Shanghai Composite down 2.8% and Hong Kong's Hang Seng falling for the sixth day. Several companies in China announced share offerings, leading to investors pulling funds from other stocks. Japan's Nikkei 225 closed down after a week-long holiday, while Australia's S&P/ASX 200 index suffered a big fall due to disappointing results from the country's big banks. National Australia Bank reported a rise in cash profit and announced a capital-raising exercise. The bank plans to demerge and float its British bank, Clydesdale. Australia's unemployment rate also rose slightly. South Korea's Kospi index closed down. 
-
-Evaluation: 90, 5, 3, 1, 1
+8878	90, 5, 3, 1, 1
 8878	90, 5, 3, 1, 1
 8897	90, 5, 3, 1, 1
 8897	90, 5, 3, 1, 1
@@ -2181,16 +2114,12 @@ Evaluation: 90, 5, 3, 1, 1
 8969	90, 5, 3, 1, 1
 8975	90, 5, 3, 1, 1
 8975	90, 5, 3, 1, 1
-8991	Howe's journey to becoming the chief strategy officer of internet security firm RSA began when she traveled alone to the US at 11 years old, fleeing Iran with her family. She found solace in coding and later took a job as a casting assistant for Steven Spielberg. After various career changes, she returned to the tech industry and now advocates for more women to join internet security. She emphasizes the importance of making the internet safer.
-8991	Howe's journey to becoming the chief strategy officer of internet security firm RSA began when she traveled alone to the US at 11 years old, fleeing Iran with her family. She found solace in coding, but took a detour into the entertainment industry before returning to technology. She now advocates for more women to join the internet security field due to the increasing demand for workers.
 8993	90, 5, 3, 1, 1
 8993	90, 5, 3, 1, 1
 9022	90, 5, 3, 1, 1
 9022	90, 5, 3, 1, 1
 9026	90, 5, 3, 1, 1
 9026	90, 5, 3, 1, 1
-9034	80, 15, 3, 1, 1
-9034	org calling for vegetarian alternatives to be mandatory in schools, in response to a ban on pork substitutes in a town in France. The petition has gained over 73,000 supporters. The conservative mayor of the town had also launched a campaign on Change.org, emphasizing France's secular values. The debate has sparked discussions on secularism and ethical considerations. France's Agriculture Minister criticized the initiative, advocating for support for French livestock.
 9051	90, 5, 3, 1, 1
 9051	90, 5, 3, 1, 1
 9071	90, 5, 3, 1, 1
@@ -2346,9 +2275,7 @@ The summary covers the main topic and key points of the news article, presenting
 9789	90, 5, 3, 1, 1
 9789	90, 5, 3, 1, 1
 9802	90, 5, 3, 1, 1
-9802	Based on the evaluation criteria, the rating for the summary would be:
-
-90, 5, 3, 1, 1
+9802	90, 5, 3, 1, 1
 
 This means that the summary is 90% likely to get a score of 5, 5% likely to get a score of 4, 3% likely to get a score of 3, 1% likely to get a score of 2, and 1% likely to get a score of 1. The summary covers the main topic and key points of the news article in a clear and logical order, but there may be some minor details missing or not fully explained.
 9812	90, 5, 3, 1, 1
@@ -2428,9 +2355,7 @@ This means that the summary is 90% likely to get a score of 5, 5% likely to get 
 10133	90, 5, 3, 1, 1
 10133	90, 5, 3, 1, 1
 10136	90, 5, 3, 1, 1
-10136	Palomino is involved in the creation of a male prostitution ring, illicit enrichment, and illegal wiretaps. The general has welcomed the probe, denying any wrongdoing and stating that the allegations are a political vendetta. The investigation was triggered by allegations from a police captain who claimed abuse by higher-ranking officers. The complaint also implicates a senator in the prostitution ring. Gen Palomino has provided documents to show the source of his money and properties. 
-
-Evaluation: 90, 5, 3, 1, 1
+10136	90, 5, 3, 1, 1
 10148	90, 5, 3, 1, 1
 10148	95, 3, 1, 0, 1
 10150	70, 20, 5, 3, 2
@@ -2521,10 +2446,6 @@ Evaluation: 90, 5, 3, 1, 1
 10594	90, 5, 3, 1, 1
 10599	90, 5, 3, 1, 1
 10599	90, 5, 3, 1, 1
-10608	Sen is a customer of a cashback website who is waiting for her money back after making purchases. She feels that the website is not clear about the waiting time for cashback. Despite this, she will continue to use cashback websites. The managing director of the website acknowledges the feedback and suggests that the waiting time varies depending on the retailer and product. Other cashback websites also have similar waiting times for money to clear into accounts. It is important for consumers to shop around and choose the best cashback website for them. 
-
-Evaluation: 90, 5, 3, 1, 1
-10608	Sen is a customer of a cashback website who is waiting for her £14 cashback, but is frustrated by the long wait time of up to four months. Despite this, she plans to continue using cashback websites. The managing director of the website acknowledges the need for clearer communication about wait times. Other cashback websites also have similar wait times, with some charging fees or taking a cut of the commission. Personal finance expert Sarah Pennells advises consumers to shop around for the best cashback deals and payment methods.
 10614	90, 5, 3, 1, 1
 10614	90, 5, 3, 1, 1
 10634	90, 5, 3, 1, 1
@@ -2579,13 +2500,8 @@ Evaluation: 90, 5, 3, 1, 1
 10849	90, 5, 3, 1, 1
 10855	90, 5, 3, 1, 1
 10855	90, 5, 3, 1, 1
-10863	70 seconds, beating Lara Gut and Cornelia Huetter. She also equaled Annemarie Moser-Proll's record of 36 World Cup downhill wins and now has 73 overall World Cup wins. Vonn leads the World Cup super-G standings by 80 points and is closing in on Lara Gut in the overall standings.
-
-Evaluation:
-90, 5, 3, 1, 1
-10863	70 seconds, equaling Annemarie Moser-Proll's record tally of 36 World Cup downhill wins. She now has 73 overall World Cup wins and leads the super-G standings by 80 points. Vonn is within 38 points of Lara Gut in the overall standings and hopes to continue winning.
-
-Evaluation: 90, 5, 3, 1, 1
+10863	90, 5, 3, 1, 1
+10863	90, 5, 3, 1, 1
 10869	90, 5, 3, 1, 1
 10869	90, 5, 3, 1, 1
 10878	90, 5, 3, 1, 1
@@ -2627,9 +2543,7 @@ Evaluation: 90, 5, 3, 1, 1
 11014	90, 5, 3, 1, 1
 11014	90, 5, 3, 1, 1
 11020	90, 5, 3, 1, 1
-11020	Gallacher, was arrested in Eton, Berkshire for driving a motor vehicle above the legal alcohol limit. She has been bailed to appear in court on 4 September.
-
-Evaluation: 90, 5, 3, 1, 1
+11020	90, 5, 3, 1, 1
 11021	90, 5, 3, 1, 1
 11021	90, 5, 3, 1, 1
 11023	90, 5, 3, 1, 1
@@ -2660,12 +2574,8 @@ The summary covers the main topic of the article, which is about Nick Tompkins a
 11107	90, 5, 3, 1, 1
 11109	90, 5, 3, 1, 1
 11109	90, 5, 3, 1, 1
-11110	Navalny is facing potential disqualification from the Moscow mayoral election, joining a list of Putin's opponents who have faced legal troubles, exile, or suspicious deaths. The article also highlights the crackdown on oligarchs and media figures critical of Putin, such as Gusinsky and Berezovsky. Other opposition figures like Khodorkovsky and Udaltsov have also faced legal challenges. Journalists like Sobchak have seen their careers suffer for opposing Putin. The summary covers the main topic of political opposition to Putin and key points of individuals facing repercussions for their dissent. It presents the information in a clear and logical order.
-
-90, 5, 3, 1, 1
-11110	Navalny is facing potential disqualification from the Moscow mayoral election, joining a list of Putin's opponents who have faced legal troubles, exile, or suspicious deaths. The article also highlights the crackdown on oligarchs and media figures critical of Putin, such as Gusinsky and Berezovsky. Other opposition figures like Khodorkovsky and Udaltsov have also faced legal challenges. Journalists and activists critical of Putin, like Pussy Riot and Sobchak, have also faced repercussions. Overall, the summary covers the main topic of political opposition to Putin and the consequences they face, presented in a clear and logical order.
-
-90, 5, 3, 1, 1
+11110	90, 5, 3, 1, 1
+11110	90, 5, 3, 1, 1
 11116	90, 5, 3, 1, 1
 11116	90, 5, 3, 1, 1
 11118	90, 5, 3, 1, 1

@@ -425,9 +425,7 @@
 2786	70, 20, 5, 3, 2
 2786	70, 20, 5, 3, 2
 2829	70, 20, 5, 3, 2
-2829	The summary does not cover the main topic and key points of the news article. It lacks clarity and logical order. 
-
-Rating: 10, 20, 30, 25, 15
+2829    10, 20, 30, 25, 15
 2843	70, 20, 5, 3, 2
 2843	10, 5, 80, 3, 2
 2880	10, 5, 80, 3, 2
@@ -527,9 +525,7 @@ Rating: 10, 20, 30, 25, 15
 3545	70, 20, 5, 3, 2
 3545	70, 20, 5, 3, 2
 3563	70, 20, 5, 3, 2
-3563	This summary is incomplete and does not cover the main topic or key points of the news article. It lacks clarity and logical order. 
-
-10, 5, 3, 2, 1
+3563	10, 5, 3, 2, 1
 3585	70, 20, 5, 3, 2
 3585	70, 20, 5, 3, 2
 3618	10, 90, 0, 0, 0

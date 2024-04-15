@@ -1,4 +1,4 @@
-4	pon meeting with European Council President Donald Tusk, U.S. Vice President Mike Pence reiterated President Trump's commitment to working with the European Union towards common goals of peace and prosperity.
+4	70, 20, 5, 3, 2
 4	70, 20, 5, 3, 2
 6	90, 5, 3, 1, 1
 
@@ -49,7 +49,7 @@ The summary covers the main topic and key points of the news article, presenting
 230	90, 5, 3, 1, 1
 230	90, 5, 3, 1, 1
 239	70, 15, 10, 3, 2
-239	The summary is missing.
+239	70, 15, 10, 3, 2
 246	90, 5, 3, 1, 1
 246	90, 5, 3, 1, 1
 248	70, 20, 5, 3, 2
@@ -115,7 +115,7 @@ The summary covers the main topic and key points of the news article by mentioni
 534	90, 5, 3, 1, 1
 534	90, 5, 3, 1, 1
 541	70, 15, 10, 3, 2
-541	The summary is incomplete.
+541	70, 15, 10, 3, 2
 546	90, 5, 3, 1, 1
 546	90, 5, 3, 1, 1
 558	90, 5, 3, 1, 1
@@ -180,8 +180,6 @@ The summary covers the main topic and key points of the news article, focusing o
 729	90, 5, 3, 1, 1
 735	90, 5, 3, 1, 1
 735	90, 5, 3, 1, 1
-766	The summary is incomplete.
-766	The summary is incomplete.
 769	70, 15, 10, 3, 2
 769	90, 5, 3, 1, 1
 773	90, 5, 3, 1, 1
@@ -209,8 +207,8 @@ The summary covers the main topic and key points of the news article accurately 
 836	90, 5, 3, 1, 1
 836	90, 5, 3, 1, 1
 838	90, 5, 3, 1, 1
-838	Likelihood of scoring:
-90, 5, 3, 1, 1
+838	90, 5, 3, 1, 1
+
 
 The summary is likely to score a 5 as it covers the main topic of the Senate panel issuing a subpoena to Paul Manafort and the key points of his refusal to appear at a hearing. It presents the information in a clear and logical order. There is a small chance of scoring a 4 due to potential minor details missing. The likelihood of scoring a 3 is low as the summary captures the main points effectively. The chances of scoring a 2 or 1 are minimal as the summary is concise and informative.
 867	90, 5, 3, 1, 1
@@ -236,8 +234,7 @@ The summary effectively captures the main topic and key points of the news artic
 939	90, 5, 3, 1, 1
 939	90, 5, 3, 1, 1
 946	70, 15, 10, 3, 2
-946	The summary does not provide a clear and concise overview of the main topic and key points of the news article. It lacks coherence and fails to cover the essential details mentioned in the article. 
-Therefore, the likelihood of the summary receiving a score of 1 is 90%, a score of 2 is 5%, a score of 3 is 3%, a score of 4 is 1%, and a score of 5 is 1%.
+946	1, 1, 3, 5, 90
 948	90, 5, 3, 1, 1
 948	90, 5, 3, 1, 1
 961	70, 20, 5, 3, 2

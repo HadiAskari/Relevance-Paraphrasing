@@ -19,6 +19,8 @@ import argparse
 import pickle as pkl
 from rouge_score import rouge_scorer
 import matplotlib.pyplot as plt
+from evaluate import load
+import random
 
 
 #### LOADING DATASETS
@@ -41,14 +43,14 @@ if args.dataset == 'cnn':      #USE
     data = load_dataset("cnn_dailymail", '3.0.0')
     article_key = 'article'
     summary_key = 'highlights'
-    with open('data_original/cnn.pkl', 'rb') as f:
+    with open('temp0/data_original/cnn_capped_random.pkl', 'rb') as f:
       summaries=pkl.load(f)
 
 elif args.dataset == 'xsum':   #USE
     data = load_dataset("xsum")
     article_key = 'document'
     summary_key = 'summary'
-    with open('data_original/xsum_capped_random.pkl', 'rb') as f:
+    with open('temp0/data_original/xsum_capped_random.pkl', 'rb') as f:
       summaries=pkl.load(f)
 
 elif args.dataset == 'news':   #USE
@@ -58,7 +60,7 @@ elif args.dataset == 'news':   #USE
     data = DatasetDict({
         'train': data['test'],
         'test': data['train']})
-    with open('data_original/news_capped_random.pkl', 'rb') as f:
+    with open('temp0/data_original/news_capped_random.pkl', 'rb') as f:
       summaries=pkl.load(f)
     
 elif args.dataset == 'reddit':   #USE
@@ -74,7 +76,7 @@ elif args.dataset == 'reddit':   #USE
         'train': train_testvalid['train'],
         'test': test_valid['test'],
         'validation': test_valid['train']})
-    with open('data_original/reddit_capped_random.pkl', 'rb') as f:
+    with open('temp0/data_original/reddit_capped_random.pkl', 'rb') as f:
       summaries=pkl.load(f)
       
 else:
@@ -87,9 +89,19 @@ data = data['test']
 data
 
 
+### For 10% sample
+
+random.seed(42)
+ten_percent=int(len(data)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(data)), ten_percent)
+random_indices.sort()
+# random_indices
+data=data.select(random_indices)
+
 bad_index=[]
-for idx,sum in enumerate(summaries):
-  if not sum:
+for idx,summ in enumerate(summaries):
+  if not summ:
       bad_index.append(idx)
 
 data=data.select(i for i in range(len(data)) 
@@ -307,7 +319,7 @@ x = [j for j in range(10)]
 # plt.plot(x, cumm_list2,'-bx', label="Gold", markevery=markers)
 # plt.xticks(x)
 # plt.legend()
-# plt.savefig('results/original/Mistral-{}_capped_random.png'.format(args.dataset))
+# plt.savefig('results/temp0/originaloriginal/Mistral-{}_capped_random.png'.format(args.dataset))
 
 highlights = []
 model_s = []
@@ -326,20 +338,45 @@ print("==> Comparing generated summaries with gold summaries")
 results = rouge.compute(predictions=model_s, references=highlights)
 print(results)
 
-def kl_divergence(p, q):
-    """
-    Calculates the KL divergence between two probability distributions p and q.
-    """
-    return np.sum(np.where(p != 0, p * np.log(p / q), 0))
+# def kl_divergence(p, q):
+#     """
+#     Calculates the KL divergence between two probability distributions p and q.
+#     """
+#     return np.sum(np.where(p != 0, p * np.log(p / q), 0))
 
-kl=kl_divergence(np.array(cumm_list1)/np.sum(cumm_list1), np.array(cumm_list2)/np.sum(cumm_list2))
+# kl=kl_divergence(np.array(cumm_list1)/np.sum(cumm_list1), np.array(cumm_list2)/np.sum(cumm_list2))
 
-results['KL_Divergence']=kl
+# results['KL_Divergence']=kl
+
+def get_bertscore(data):
+    
+    highlights = []
+    model_s = []
+
+
+    for j in data['highlights']:
+        highlights.append(' '.join(j))
+
+    for k in data['model_summaries']:
+        model_s.append(' '.join(k))
+    
+    bertscore = load("bertscore")
+    
+    results = bertscore.compute(predictions=model_s, references=highlights, lang="en", device='cuda:3')
+    mean_precision=sum(results['precision'])/len(results['precision'])
+    mean_recall=sum(results['recall'])/len(results['recall'])
+    mean_f1=sum(results['f1'])/len(results['f1'])
+    
+    return mean_f1
+  
+bertscore=get_bertscore(data)
+
+results['Bertscore']=bertscore
 
 # df=pd.DataFrame.from_dict(results)
 df=pd.DataFrame([results])
 
-df.to_csv('results/original/Mistral-{}.csv'.format(args.dataset))
+df.to_csv('results/temp0/original/Mistral-{}.csv'.format(args.dataset))
 
-data.save_to_disk('saved_models/original/Mistral-{}'.format(args.dataset))
+data.save_to_disk('saved_models/original/original-Mistral-{}'.format(args.dataset))
 

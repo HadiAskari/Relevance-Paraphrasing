@@ -1,5 +1,3 @@
-4	pon meeting with European Council President Donald Tusk, U.S. Vice President Mike Pence reiterated President Trump's commitment to working with the European Union for peace and prosperity.
-4	70, 20, 5, 3, 2
 6	70, 20, 5, 3, 2
 6	90, 5, 3, 1, 1
 
@@ -44,8 +42,6 @@ The summary accurately captures the main topic and key points of the news articl
 230	90, 5, 3, 1, 1
 239	70, 20, 5, 3, 2
 239	90, 5, 3, 1, 1
-246	The summary does not provide any information and is incomplete.
-246	90, 5, 3, 1, 1
 248	70, 20, 5, 3, 2
 248	90, 5, 3, 1, 1
 250	90, 5, 3, 1, 1

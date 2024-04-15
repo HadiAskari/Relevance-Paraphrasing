@@ -83,8 +83,8 @@ reddit_sum_para = read_summaries(paraSummaryPath+'reddit_capped_random.pkl')
 ##### ChatGPT-3.5-T Evaluation Functions ###### 
 ###############################################
 
-def ratePromptGood(article, summary):
-    prompt = """
+def ratePromptGood(i,article, summary):
+    prompt = """{i}
 
     You will be given one summary written for a news article. Your task is to rate the summary based on the following criteria:
     Output format: PERCENTAGE, PERCENTAGE, PERCENTAGE, PERCENTAGE, PERCENTAGE
@@ -97,7 +97,7 @@ def ratePromptGood(article, summary):
     Here is the article: {article}
 
     Here is the summary: {summary}
-    """.format(article=article, summary=summary)
+    """.format(i=i,article=article, summary=summary)
 
     return prompt
 
@@ -130,11 +130,11 @@ def createPrompts(ds, ds_key, sum_orig, sum_para):
         else:
             summary = ds[i]['prediction']['text']
             
-        # prompt = ratePromptGood(article, summary)
-        # prompts.append(prompt)
-        prompt = ratePromptGood(article, sum_orig[i])
+        prompt = ratePromptGood(article, summary)
         prompts.append(prompt)
-        prompt = ratePromptGood(article, sum_para[i])
+        prompt = ratePromptGood(i,article, sum_orig[i])
+        prompts.append(prompt)
+        prompt = ratePromptGood(i,article, sum_para[i])
         prompts.append(prompt)
 
     return idx, prompts
@@ -163,7 +163,7 @@ with open('dolly_reddit_idx.txt', 'w') as f:
     f.write('\n'.join(reddit_idx))
 with open('dolly_reddit_prompts.txt', 'w') as f:
     f.write('\n'.join(reddit_prompts))
-# print(reddit_prompts[0:3])
+print(reddit_prompts[0:3])
 
 ## Create ChatGPT client
 def ask_chatgpt(idx, prompts, outFilePath):

@@ -40,9 +40,9 @@ The summary covers the main topic of the article, which is Katy James being refu
 270	90, 5, 3, 1, 1
 278	10, 5, 80, 3, 2
 278	90, 5, 3, 1, 1
-282	Based on the evaluation criteria, the rating for the summary would be:
+282 90, 5, 3, 1, 1
 
-90, 5, 3, 1, 1
+
 
 This means that the summary is 90% likely to get a score of 5, 5% likely to get a score of 4, 3% likely to get a score of 3, 1% likely to get a score of 2, and 1% likely to get a score of 1. The summary covers the main topic and key points of the news article in a clear and logical order.
 282	10, 5, 5, 3, 2
@@ -133,9 +133,7 @@ The summary covers the main topic of Mr Evans' career and current position in th
 702	90, 5, 3, 1, 1
 702	90, 5, 3, 1, 1
 704	70, 20, 5, 3, 2
-704	70 in the preliminary round, but fell short in the final with a score of 403.25. Despite feeling heartbroken, he expressed determination to continue competing in the future. Chen Aisen of China won the gold medal in the final. 
-
-90, 5, 3, 1, 1
+704	90, 5, 3, 1, 1
 723	90, 5, 3, 1, 1
 723	20, 10, 5, 3, 2
 729	70, 20, 5, 3, 2
@@ -314,10 +312,6 @@ The summary covers the main topic and key points of the news article by mentioni
 1648	90, 5, 3, 1, 1
 1662	10, 5, 5, 5, 75
 1662	70, 20, 5, 3, 2
-1681	Based on the article provided, the summary does not cover the main topic and key points of the news article. The summary is incomplete and does not provide a clear and logical order of the information presented in the article. 
-
-Therefore, the rating for the summary would be: 10, 5, 2, 1, 1
-1681	90, 5, 3, 1, 1
 1692	90, 5, 3, 1, 1
 1692	70, 20, 5, 3, 2
 1696	90, 5, 3, 1, 1
@@ -388,9 +382,7 @@ The summary only covers one small aspect of the news article, focusing on Johnny
 2037	90, 5, 3, 1, 1
 2038	95, 3, 1, 0, 1
 2038	95, 3, 1, 0, 1
-2039	The summary covers the main topic of Nato air strikes in Libya and the concerns raised by Human Rights Watch regarding civilian casualties. It mentions the lack of investigations and transparency from Nato, as well as the call for accountability and compensation for the affected families. The summary presents the key points in a clear and logical order, providing a concise overview of the article. 
-
-90, 5, 3, 1, 1
+2039	90, 5, 3, 1, 1
 2039	90, 5, 3, 1, 1
 2042	10, 5, 5, 80, 0
 2042	20, 70, 5, 3, 2
@@ -467,9 +459,7 @@ The summary covers the main topic of the news article, which is the fire inciden
 2341	90, 5, 3, 1, 1
 2341	90, 5, 3, 1, 1
 2353	90, 5, 3, 1, 1
-2353	The summary covers the main topic of David Crompton stepping down as chief constable after a report found the force's response to abuse in Rotherham was inadequate. It also mentions the criticism faced by Mr Crompton in connection with the search of Sir Cliff Richard's home. The summary presents the key points in a clear and logical order.
-
-Evaluation: 90, 5, 3, 1, 1
+2353    90, 5, 3, 1, 1
 2371	90, 5, 3, 1, 1
 2371	95, 3, 1, 0, 1
 2380	90, 5, 3, 1, 1
@@ -516,9 +506,7 @@ Evaluation: 90, 5, 3, 1, 1
 2601	90, 5, 3, 1, 1
 2647	90, 5, 3, 1, 1
 2647	90, 5, 3, 1, 1
-2656	The summary does not cover the main topic and key points of the news article. It lacks details about the economic growth, foreign aid, and challenges faced by Ethiopia. The summary is too vague and does not provide a clear and logical order of information. 
-
-10, 20, 50, 15, 5
+2656	10, 20, 50, 15, 5
 2656	90, 5, 3, 1, 1
 2658	70, 20, 5, 3, 2
 2658	70, 20, 5, 3, 2
@@ -592,7 +580,7 @@ The summary covers the main topic and key points of the news article, mentioning
 3002	70, 20, 5, 3, 2
 3018	70, 20, 5, 3, 2
 3018	70, 20, 5, 3, 2
-3023	Based on the evaluation criteria, the rating for the summary would be: 70, 20, 5, 3, 2
+3023	70, 20, 5, 3, 2
 3023	90, 5, 3, 1, 1
 3039	70, 20, 5, 3, 2
 3039	20, 10, 5, 3, 2
@@ -646,10 +634,6 @@ The summary covers a key point from the article, mentioning Liam Neeson's hurlin
 3263	70, 20, 5, 3, 2
 3276	90, 5, 3, 1, 1
 3276	90, 5, 3, 1, 1
-3296	50, 30, 10, 5, 5
-3296	0bn of assets under management, and it is being acquired by Dundee-headquartered firm for £14m in cash. The acquisition will increase Alliance Trust Savings' assets under management to £11.5bn and bring in 48,000 new customers. The deal is expected to close this year and could help Alliance Trust Savings become profitable by 2016. The sale will only result in a net gain of £1m for Brewin Dolphin. The deal is part of a strategy criticized by Elliott Advisers, but it seems they have agreed to the expansion. Patrick Mill, managing director of Alliance Trust Savings, sees the acquisition as a strategic fit that will provide access to new customers and increase assets. The deal will also expand services offered by the Dundee company. 
-
-Evaluation: 90, 5, 3, 1, 1
 3337	90, 5, 3, 1, 1
 3337	70, 20, 5, 3, 2
 3341	90, 5, 3, 1, 1
@@ -844,14 +828,6 @@ The summary covers the main topic of the article, which is the petition to chang
 4220	90, 5, 3, 1, 1
 4230	70, 20, 5, 3, 2
 4230	50, 30, 10, 5, 5
-4231	70,000, with 5.3 million non-British residents, 2.9 million of whom are from Europe. Polish nationals make up the largest group, followed by Irish, Romanian, and Portuguese nationals. The UK government is hesitant to give guarantees to EU nationals without similar concessions for UK nationals in the EU. The number of EU nationals working in the UK has increased over the years, while there are about 1.19 million non-UK nationals from outside the EU working in the UK. Just under 1.2 million UK nationals live in the rest of the EU, with Spain having the most UK nationals. The Irish and Polish governments are making contingency plans for their citizens post-Brexit. 
-
-Evaluation:
-90, 5, 3, 1, 1
-4231	70,000, with 5.3 million non-British residents, 2.9 million of whom are from Europe. Polish nationals make up the largest group, followed by Irish, Romanian, and Portuguese nationals. The number of EU nationals working in the UK has increased over the years. Additionally, there are about 1.19 million non-UK nationals from outside the EU working in the UK, and just under 1.2 million UK nationals living in the rest of the EU. Spain has the most UK nationals living there, followed by Ireland and France. The article also mentions contingency plans by the Irish government and statements from the Polish Prime Minister regarding negotiations for EU nationals in the UK. 
-
-Evaluation:
-90, 5, 3, 1, 1
 4238	90, 5, 3, 1, 1
 4238	90, 5, 3, 1, 1
 4240	90, 5, 3, 1, 1
@@ -1125,8 +1101,7 @@ The summary covers the main topic of the article, which is the underground fire 
 5868	10, 5, 5, 80, 0
 5868	70, 20, 5, 3, 2
 5873	90, 5, 3, 1, 1
-5873	Based on the provided article, the summary is likely to receive the following ratings:
-90, 5, 3, 1, 1
+5873	90, 5, 3, 1, 1
 5886	70, 20, 5, 3, 2
 5886	10, 5, 80, 3, 2
 5897	90, 5, 3, 1, 1
@@ -1157,8 +1132,6 @@ The summary covers the main topic of the article, which is the underground fire 
 6014	90, 5, 3, 1, 1
 6056	90, 5, 3, 1, 1
 6056	90, 5, 3, 1, 1
-6064	The Royal College of Surgeons (RCS) has stated that waiting times for treatment in Wales are unacceptably high, with almost 450,000 patients waiting for treatment. Despite initiatives, demand continues to grow, and the RCS is calling for all parties to prioritize tackling waiting lists in their election manifestos. The Welsh government claims waiting times have been cut since devolution, but the RCS argues that more needs to be done to address the issue. The RCS also highlights concerns about the lack of critical care beds and the need for sustainable solutions to improve patient experience.
-6064	10, 5, 3, 2, 1
 6069	90, 5, 3, 1, 1
 6069	90, 5, 3, 1, 1
 6076	90, 5, 3, 1, 1
@@ -1203,9 +1176,7 @@ The summary covers the main topic of the article, which is the underground fire 
 6290	70, 20, 5, 3, 2
 6340	90, 5, 3, 1, 1
 6340	90, 5, 3, 1, 1
-6344	The article discusses a woman who was blinded and scarred in an acid attack but fought for custody of her son and became an advocate for other victims. The story is part of the BBC's 100 Women season, highlighting inspirational stories of women who defy stereotypes. #100Women. 
-
-90, 5, 3, 1, 1
+6344	90, 5, 3, 1, 1
 6344	95, 3, 1, 0, 1
 6378	70, 20, 5, 3, 2
 6378	90, 5, 3, 1, 1
@@ -1417,12 +1388,6 @@ The summary covers the main topic of the article, which is the announcement of t
 7450	90, 5, 3, 1, 1
 7459	90, 5, 3, 1, 1
 7459	10, 5, 5, 80, 0
-7470	10, 5, 3, 1, 1
-7470	1. 90%
-2. 5%
-3. 2%
-4. 2%
-5. 1%
 7479	70, 20, 5, 3, 2
 7479	90, 5, 3, 1, 1
 7482	90, 5, 3, 1, 1
@@ -1465,10 +1430,6 @@ The summary covers the main topic of the article, which is the local authority's
 7697	90, 5, 3, 1, 1
 7703	90, 5, 3, 1, 1
 7703	90, 5, 3, 1, 1
-7706	90, 5, 3, 1, 1
-7706	Garner will be joining Nationwide in spring 2016 to replace the current chief executive. He will be leaving Openreach after almost two years in charge. Garner expressed that the Nationwide job was too good to pass up, despite his enjoyment at Openreach. Nationwide chairman David Roberts praised Garner as an exceptional leader. His departure comes as Ofcom investigates whether Openreach should be split off from BT. Internet providers argue that BT has an unfair advantage from owning the telecoms infrastructure business.
-
-Evaluation: 90, 5, 3, 1, 1
 7710	20, 10, 5, 3, 2
 7710	90, 5, 3, 1, 1
 7723	90, 5, 3, 1, 1
@@ -1543,10 +1504,6 @@ The summary covers the main topic and key points of the news article, presenting
 8073	90, 5, 3, 1, 1
 8082	90, 5, 3, 1, 1
 8082	90, 5, 3, 1, 1
-8089	90, 5, 3, 1, 1
-8089	Stevenson, who went missing on 18 October, was found dead in Bromborough. Her family has been informed and a post-mortem examination is scheduled. Friends joined the search efforts. A man was arrested on suspicion of murder. CCTV footage was released to aid in the search.
-
-Evaluation: 90, 5, 3, 1, 1
 8116	90, 5, 3, 1, 1
 8116	90, 5, 3, 1, 1
 8121	90, 5, 3, 1, 1
@@ -1601,10 +1558,6 @@ The summary covers the main topic of the article, which is the rescue of captive
 8329	70, 20, 5, 3, 2
 8346	20, 5, 2, 1, 1
 8346	90, 5, 3, 1, 1
-8354	5km) time trial event and the women's road race at the UEC European Road Championships in Herning next month. They will be joined by Alice Barnes, Ellie Dickinson, Lucy Shaw, and Abi Van Twisk in the road race. The course is expected to be quick and flat, providing opportunities for the team to showcase their skills. This will be the first time this group of riders will race together as a team, presenting a good development opportunity. Overall, the team is looking forward to competing against international opposition.
-
-Evaluation: 90, 5, 3, 1, 1
-8354	90, 5, 3, 1, 1
 8369	90, 5, 3, 1, 1
 
 The summary covers the main topic and key points of the news article, mentioning Aaron Saucedo's previous murder charge and linking him to the deaths of eight other people. However, it lacks the additional details provided in the article, such as the victims' profiles, the lack of identified motive, and the evidence used by the police to link Saucedo to the killings. Overall, the summary is clear but lacks depth.
@@ -1832,9 +1785,7 @@ The summary covers the main topic of the news article, which is the police seeki
 9721	90, 5, 3, 1, 1
 9721	90, 5, 3, 1, 1
 9737	90, 5, 3, 1, 1
-9737	Clinton delivers a scathing speech against Donald Trump, positioning herself as the defender of American values and appealing to moderate Republicans. She aims to attract voters concerned about Trump's foreign policy and social issues stance. Some prominent Republicans are openly supporting her, citing Trump as dangerous. Clinton's strategy includes appealing to GOP moderates on social issues and foreign policy, but she must also focus on economic concerns to win over anti-Trump Republicans. She aims to unify the Democratic party while also presenting herself as the candidate of America's center.
-
-90, 5, 3, 1, 1
+9737	90, 5, 3, 1, 1
 9740	90, 5, 3, 1, 1
 9740	10, 5, 2, 1, 1
 9754	90, 5, 3, 1, 1
@@ -1909,10 +1860,6 @@ The summary does not accurately reflect the main topic and key points of the new
 10110	70, 20, 5, 3, 2
 10133	20, 10, 5, 3, 2
 10133	90, 5, 3, 1, 1
-10136	20, 10, 5, 3, 2
-10136	Palomino was involved in the creation of a male prostitution ring, as well as illicit enrichment and illegal wiretapping. The general has welcomed the probe, denying any wrongdoing and stating that the allegations are a political vendetta. The investigation was triggered by allegations from a police captain who claimed abuse by higher-ranking officers. The probe also implicates a senator and alleges complicity of police officials, including Gen Palomino. Wiretapping accusations are also part of the case. Gen Palomino has provided documents to show the source of his money and properties. 
-
-Evaluation: 90, 5, 3, 1, 1
 10148	90, 5, 3, 1, 1
 10148	90, 5, 3, 1, 1
 10150	90, 5, 3, 1, 1
@@ -1987,11 +1934,7 @@ The summary covers the main topic of the article, which is the Environment Agenc
 
 The summary covers the main topic of Llandeilo residents demanding action for over 40 years, but it lacks key points such as the heavy congestion, air pollution levels, construction timeline, and funding announcement. It presents the information in a clear and logical order, but it is missing important details from the news article.
 10639	90, 5, 3, 1, 1
-10642	Based on the evaluation criteria, the summary provided is not sufficient as it only mentions one feature of the BlackBerry Z30 and does not cover the key points and main topic of the news article. 
-
-Therefore, the likelihood of the summary receiving a score of 1 is 80%, a score of 2 is 15%, a score of 3 is 3%, a score of 4 is 1%, and a score of 5 is 1%. 
-
-So, the rating for the summary is 80, 15, 3, 1, 1.
+10642	80, 15, 3, 1, 1
 10642	70, 20, 5, 3, 2
 10644	70, 20, 5, 3, 2
 10644	70, 20, 5, 3, 2

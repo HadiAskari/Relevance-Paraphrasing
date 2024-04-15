@@ -160,9 +160,7 @@
 1097	20, 30, 40, 5, 5
 1135	70, 20, 5, 3, 2
 1135	10, 80, 5, 3, 2
-1137	poopy butthole did certain things in the episode, leading to both of my sons singing a made-up song about him on their way to school.
-
-    Evaluation: 90, 5, 3, 1, 1
+1137	90, 5, 3, 1, 1
 1137	70, 20, 5, 3, 2
 1161	90, 5, 3, 1, 1
 1161	90, 5, 3, 1, 1
@@ -530,10 +528,7 @@
 3732	70, 20, 5, 3, 2
 3738	70, 20, 5, 3, 2
 3738	10, 90, 0, 0, 0
-3754	
-Based on the provided article, the summary does not accurately capture the main topic and key points. It lacks clarity and logical order in presenting the events that led to the consequences faced by the student. 
-
-Rating: 10, 5, 2, 1, 1
+3754	10, 5, 2, 1, 1
 3754	10, 80, 5, 3, 2
 3767	10, 5, 5, 80, 0
 3767	70, 20, 5, 3, 2
