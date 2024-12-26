@@ -23,6 +23,11 @@ from evaluate import load
 import random
 
 
+
+
+
+      
+
 #### LOADING DATASETS
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -43,14 +48,14 @@ if args.dataset == 'cnn':      #USE
     data = load_dataset("cnn_dailymail", '3.0.0')
     article_key = 'article'
     summary_key = 'highlights'
-    with open('temp0/data_original/cnn_capped_random.pkl', 'rb') as f:
+    with open('data_NAACL/run2/cnn.pkl', 'rb') as f:
       summaries=pkl.load(f)
 
 elif args.dataset == 'xsum':   #USE
     data = load_dataset("xsum")
     article_key = 'document'
     summary_key = 'summary'
-    with open('temp0/data_original/xsum_capped_random.pkl', 'rb') as f:
+    with open('data_NAACL/run2/xsum.pkl', 'rb') as f:
       summaries=pkl.load(f)
 
 elif args.dataset == 'news':   #USE
@@ -60,7 +65,7 @@ elif args.dataset == 'news':   #USE
     data = DatasetDict({
         'train': data['test'],
         'test': data['train']})
-    with open('temp0/data_original/news_capped_random.pkl', 'rb') as f:
+    with open('data_NAACL/run2/news.pkl', 'rb') as f:
       summaries=pkl.load(f)
     
 elif args.dataset == 'reddit':   #USE
@@ -76,7 +81,7 @@ elif args.dataset == 'reddit':   #USE
         'train': train_testvalid['train'],
         'test': test_valid['test'],
         'validation': test_valid['train']})
-    with open('temp0/data_original/reddit_capped_random.pkl', 'rb') as f:
+    with open('data_NAACL/run2/reddit.pkl', 'rb') as f:
       summaries=pkl.load(f)
       
 else:
@@ -280,41 +285,41 @@ for ind, da in enumerate(data):
 #     print(y)
     cumm_list2 = [a+b for a,b in zip(cumm_list2, y2)]
 
-x = [j for j in range(10)]
+# x = [j for j in range(10)]
 
-plt.xlabel("Segment")
-plt.ylabel("#Total sentences across all summaries")
-plt.title("Segment vs frequency [{}-GPT-3.5-Turbo]".format(args.dataset))
-markers=[0,1,2,3,4,5,6,7,8,9]
+# plt.xlabel("Segment")
+# plt.ylabel("#Total sentences across all summaries")
+# plt.title("Segment vs frequency [{}-GPT-3.5-Turbo]".format(args.dataset))
+# markers=[0,1,2,3,4,5,6,7,8,9]
 
 
 
-if args.dataset == 'cnn':      #USE
+# if args.dataset == 'cnn':      #USE
 
-  ax = plt.gca()
-  ax.set_ylim([0, 16000])
+#   ax = plt.gca()
+#   ax.set_ylim([0, 16000])
 
-elif args.dataset == 'xsum':   #USE
+# elif args.dataset == 'xsum':   #USE
 
-  ax = plt.gca()
-  ax.set_ylim([0, 14000])
+#   ax = plt.gca()
+#   ax.set_ylim([0, 14000])
 
-elif args.dataset == 'news':   #USE
+# elif args.dataset == 'news':   #USE
 
-  ax = plt.gca()
-  ax.set_ylim([0, 1200])
+#   ax = plt.gca()
+#   ax.set_ylim([0, 1200])
     
-elif args.dataset == 'reddit':   #USE
+# elif args.dataset == 'reddit':   #USE
 
-  ax = plt.gca()
-  ax.set_ylim([0, 4000])
+#   ax = plt.gca()
+#   ax.set_ylim([0, 4000])
 
 
-plt.plot(x, cumm_list1,'-rx', label="Generated", markevery=markers)
-plt.plot(x, cumm_list2,'-bx', label="Gold", markevery=markers)
-plt.xticks(x)
-plt.legend()
-plt.savefig('results/temp0/original/GPT-3.5-Turbo-{}-capped_random.png'.format(args.dataset))
+# plt.plot(x, cumm_list1,'-rx', label="Generated", markevery=markers)
+# plt.plot(x, cumm_list2,'-bx', label="Gold", markevery=markers)
+# plt.xticks(x)
+# plt.legend()
+# plt.savefig('results/temp0/original/GPT-3.5-Turbo-{}-capped_random.png'.format(args.dataset))
 
 highlights = []
 model_s = []
@@ -343,6 +348,8 @@ print(results)
 
 # results['KL_Divergence']=kl
 
+
+
 def get_bertscore(data):
     
     highlights = []
@@ -364,14 +371,39 @@ def get_bertscore(data):
     
     return mean_f1
   
+
 bertscore=get_bertscore(data)
 
 results['Bertscore']=bertscore
 
+# from MENLI.MENLI import MENLI
+
+# def getMENLI(data):
+#   scorer = MENLI(direction="avg", formula="e", src=False, nli_weight=0.3, combine_with="BERTScore-F", model="D")
+#   res=[]
+#   count=0
+#   # refs and hyps in form of list of String
+#   for cand, ref in tqdm(zip(data['highlights'],data['model_summaries'])):
+#       count+=1
+#       # if count>=20:
+#       #     break
+#       if len(cand)!=len(ref):
+#           continue
+#       if not cand or not ref:
+#           continue
+#       scores=scorer.score_all(srcs=[],refs=cand, hyps=ref) 
+
+#       res.append(sum(scores)/len(scores))
+  
+#   return (sum(res)/len(res))
+
+# menli=getMENLI(data)
+# results['MENLI']=menli
+
 # df=pd.DataFrame.from_dict(results)
 df=pd.DataFrame([results])
 
-df.to_csv('results/temp0/original/GPT-3.5-Turbo-{}.csv'.format(args.dataset))
+df.to_csv('results_NAACL/run2-GPT-{}.csv'.format(args.dataset))
 
-data.save_to_disk('saved_models/original-GPT-3.5-Turbo-{}'.format(args.dataset))
+data.save_to_disk('results_NAACL/saved_models/run2-GPT-{}'.format(args.dataset))
 

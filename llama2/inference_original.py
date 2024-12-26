@@ -15,6 +15,9 @@ import pickle as pkl
 import os
 import random
 
+import os
+
+
 def prompt_CNN(article):
 
     prompt="""
@@ -134,7 +137,7 @@ def call(generator, articles, name, max_gen_len,temperature,top_p):
 def main(
     ckpt_dir: str,
     tokenizer_path: str,
-    temperature: float = 0,
+    temperature: float = 0.7,
     top_p: float = 0.9,
     max_seq_len: int = 4096,
     max_batch_size: int = 2,
@@ -160,10 +163,10 @@ def main(
     random_indices.sort()
     # random_indices
 
-
+    
     data=data.select(random_indices)
     
-    collected=os.listdir('temp0/data_original/cnn')
+    collected=os.listdir('data_NAACL/run2/cnn')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -177,12 +180,12 @@ def main(
         else:    
             try:    
                 cnn.append(call(generator,article, name,max_gen_len,temperature,top_p))
-                with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+                with open('data_NAACL/run2/cnn/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(cnn,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+                    with open('data_NAACL/run2/cnn/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
             
             
@@ -208,7 +211,7 @@ def main(
     name='xsum'
 
 
-    collected=os.listdir('temp0/data_original/xsum')
+    collected=os.listdir('data_NAACL/run2/xsum')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -220,7 +223,7 @@ def main(
             continue
         
         elif count==8018:
-            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/xsum/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([' '],f)
             count+=1
             continue
@@ -229,12 +232,12 @@ def main(
         else:
             try:    
                 xsum.append(call(generator,article, name,max_gen_len,temperature,top_p))
-                with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+                with open('data_NAACL/run2/xsum/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(xsum,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+                    with open('data_NAACL/run2/xsum/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
             
             
@@ -263,7 +266,7 @@ def main(
 
 
 
-    collected=os.listdir('temp0/data_original/news')
+    collected=os.listdir('data_NAACL/run2/news')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -278,12 +281,12 @@ def main(
         else:    
             try:    
                 news.append(call(generator,article, name,max_gen_len,temperature,top_p))
-                with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+                with open('data_NAACL/run2/news/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(news,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+                    with open('data_NAACL/run2/news/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
             
             
@@ -320,7 +323,7 @@ def main(
 
     data=data.select(random_indices)
 
-    collected=os.listdir('temp0/data_original/reddit')
+    collected=os.listdir('data_NAACL/run2/reddit')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -335,12 +338,12 @@ def main(
         else:
             try:    
                 reddit.append(call(generator,article, name,max_gen_len,temperature,top_p))
-                with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+                with open('data_NAACL/run2/reddit/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(reddit,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+                    with open('data_NAACL/run2/reddit/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
                  
                     

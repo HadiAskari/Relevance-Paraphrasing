@@ -22,7 +22,7 @@ import copy
 import multiprocessing
 import pickle as pkl
 import openai
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
 from time import sleep
 from tqdm.auto import tqdm
@@ -96,16 +96,16 @@ def get_original(articles, dataset_name, api_key):
                            
                                     """.format(user_input)}
                         ],
-                        temperature=0)
+                        temperature=0.7)
 
             
             res=response["choices"][0]["message"]["content"]
             # print(res)
             
-            sleep(5)
+            sleep(2)
             break
         except Exception as e:
-            sleep(5)
+            sleep(2)
             print(e)
             if "This model's maximum context length is 4097 tokens." in str(e):
                 return " "
@@ -121,8 +121,9 @@ def get_original(articles, dataset_name, api_key):
 
 
 if __name__=='__main__':
-    load_dotenv()
-    api_key = os.getenv("API_KEY")
+    # load_dotenv()
+    # api_key = os.getenv("API_KEY")
+    api_key ='sk-proj-ytd0znrkPJrGvJTReBagT3BlbkFJSmKmf2v9too5HhoZX7m7'
 
     
     
@@ -141,7 +142,7 @@ if __name__=='__main__':
     data=dataset['test']
     print(data)
 
-    ### For 10% sample
+    # ### For 10% sample
     
     random.seed(42)
     ten_percent=int(len(data)*0.115)
@@ -154,7 +155,7 @@ if __name__=='__main__':
     data=data.select(random_indices)
     
     
-    collected=os.listdir('temp0/data_original/cnn')
+    collected=os.listdir('data_NAACL/run1/cnn')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -166,7 +167,7 @@ if __name__=='__main__':
             continue
         
         elif article==' ':
-            with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run1/cnn/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -175,12 +176,12 @@ if __name__=='__main__':
         else:    
             try:    
                 cnn.append(get_original(article, name, api_key))
-                with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+                with open('data_NAACL/run1/cnn/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(cnn,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+                    with open('data_NAACL/run1/cnn/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
             
             
@@ -196,7 +197,7 @@ if __name__=='__main__':
 
     name='xsum'
     
-    ### For 10% sample
+    # ### For 10% sample
     
     random.seed(42)
     ten_percent=int(len(data)*0.115)
@@ -209,7 +210,7 @@ if __name__=='__main__':
     data=data.select(random_indices)
     
 
-    collected=os.listdir('temp0/data_original/xsum')
+    collected=os.listdir('data_NAACL/run1/xsum')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -221,20 +222,20 @@ if __name__=='__main__':
             continue
         
         elif article==' ':
-            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run1/xsum/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
         
         elif count==797:
-            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run1/xsum/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([' '],f)
             count+=1
             continue
         
         
         elif count==8018:
-            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run1/xsum/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([' '],f)
             count+=1
             continue
@@ -243,12 +244,12 @@ if __name__=='__main__':
         else:
             try:    
                 xsum.append(get_original(article, name, api_key))
-                with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+                with open('data_NAACL/run1/xsum/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(xsum,f)
             except Exception as e:
                 print(e)
                 print("out of memory")
-                with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+                with open('data_NAACL/run1/xsum/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump([' '],f)
             
             
@@ -270,7 +271,7 @@ if __name__=='__main__':
     #dataset=dataset.select(range(10))
     name='argilla/news-summary'
     
-    ### For 10% sample
+    # ### For 10% sample
     
     random.seed(42)
     ten_percent=int(len(data)*0.115)
@@ -284,7 +285,7 @@ if __name__=='__main__':
 
 
 
-    collected=os.listdir('temp0/data_original/news')
+    collected=os.listdir('data_NAACL/run1/news')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -296,7 +297,7 @@ if __name__=='__main__':
             continue
         
         elif article==' ':
-            with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run1/news/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -305,12 +306,12 @@ if __name__=='__main__':
         else:    
             try:    
                 news.append(get_original(article, name, api_key))
-                with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+                with open('data_NAACL/run1/news/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(news,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+                    with open('data_NAACL/run1/news/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
             
             
@@ -356,7 +357,7 @@ if __name__=='__main__':
     data=data.select(random_indices)
     
 
-    collected=os.listdir('temp0/data_original/reddit')
+    collected=os.listdir('data_NAACL/run1/reddit')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -368,7 +369,7 @@ if __name__=='__main__':
             continue
         
         elif article==' ':
-            with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run1/reddit/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -376,12 +377,12 @@ if __name__=='__main__':
         else:
             try:    
                 reddit.append(get_original(article, name, api_key))
-                with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+                with open('data_NAACL/run1/reddit/{}.pkl'.format(count), 'wb') as f:
                     pkl.dump(reddit,f)
             except RuntimeError as e:
                 if "out of memory" in str(e):
                     print("out of memory")
-                    with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+                    with open('data_NAACL/run1/reddit/{}.pkl'.format(count), 'wb') as f:
                         pkl.dump([],f)
                  
                 

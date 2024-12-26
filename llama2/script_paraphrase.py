@@ -45,14 +45,14 @@ if args.dataset == 'cnn':      #USE
     data = load_dataset("cnn_dailymail", '3.0.0')
     article_key = 'article'
     summary_key = 'highlights'
-    with open('temp0/data_paraphrase/cnn_capped_random.pkl', 'rb') as f:
+    with open('/nas02/Hadi/Relevance-Paraphrasing/llama2/data_paraphrase/cnn.pkl', 'rb') as f:
       paraphrased_summaries=pkl.load(f)
 
 elif args.dataset == 'xsum':   #USE
     data = load_dataset("xsum")
     article_key = 'document'
-    summary_key = 'summary'
-    with open('temp0/data_paraphrase/xsum_capped_random.pkl', 'rb') as f:
+    summary_key = 'summary'    
+    with open('/nas02/Hadi/Relevance-Paraphrasing/llama2/data_paraphrase/xsum_capped_random.pkl', 'rb') as f:
       paraphrased_summaries=pkl.load(f)
 
 elif args.dataset == 'news':   #USE
@@ -62,7 +62,7 @@ elif args.dataset == 'news':   #USE
     data = DatasetDict({
         'train': data['test'],
         'test': data['train']})
-    with open('temp0/data_paraphrase/news_capped_random.pkl', 'rb') as f:
+    with open('/nas02/Hadi/Relevance-Paraphrasing/llama2/data_paraphrase/news_capped_random.pkl', 'rb') as f:
       paraphrased_summaries=pkl.load(f)
     
 elif args.dataset == 'reddit':   #USE
@@ -78,7 +78,7 @@ elif args.dataset == 'reddit':   #USE
         'train': train_testvalid['train'],
         'test': test_valid['test'],
         'validation': test_valid['train']})
-    with open('temp0/data_paraphrase/reddit_capped_random.pkl', 'rb') as f:
+    with open('/nas02/Hadi/Relevance-Paraphrasing/llama2/data_paraphrase/reddit_capped_random.pkl', 'rb') as f:
       paraphrased_summaries=pkl.load(f)
       
 else:
@@ -90,17 +90,20 @@ else:
 data = data['test']
 data
 
-# data=data.select(range(2276))
+
+
+data=data.select(range(2000))
+paraphrased_summaries=paraphrased_summaries[0:2000]
 
 ### For 10% sample
 
-random.seed(42)
-ten_percent=int(len(data)*0.115)
-# print(ten_percent)
-random_indices = random.sample(range(len(data)), ten_percent)
-random_indices.sort()
-# random_indices
-data=data.select(random_indices)
+# random.seed(42)
+# ten_percent=int(len(data)*0.115)
+# # print(ten_percent)
+# random_indices = random.sample(range(len(data)), ten_percent)
+# random_indices.sort()
+# # random_indices
+# data=data.select(random_indices)
 
 bad_index=[]
 for idx,summ in enumerate(paraphrased_summaries):
@@ -430,10 +433,34 @@ bertscore=get_bertscore(data)
 results['Bertscore']=bertscore
 
 
+from MENLI.MENLI import MENLI
+
+def getMENLI(data):
+  scorer = MENLI(direction="rh", formula="e-c", src=False, nli_weight=0.3, combine_with="BERTScore-F", model="D")
+  res=[]
+  count=0
+  # refs and hyps in form of list of String
+  for cand, ref in tqdm(zip(data['highlights'],data['model_summaries'])):
+      count+=1
+      # if count>=20:
+      #     break
+      if len(cand)!=len(ref):
+          continue
+      if not cand or not ref:
+          continue
+      scores=scorer.score_all(srcs=[],refs=cand, hyps=ref) 
+
+      res.append(sum(scores)/len(scores))
+  
+  return (sum(res)/len(res))
+
+menli=getMENLI(data)
+results['MENLI']=menli
+
 # df=pd.DataFrame.from_dict(results)
 df=pd.DataFrame([results])
 
-df.to_csv('results/temp0/paraphrase/LlaMa2-{}.csv'.format(args.dataset))
+df.to_csv('results/top3-rele-para-LlaMa2-{}.csv'.format(args.dataset))
 
-data.save_to_disk('saved_models/paraphrase-LlaMa2-{}'.format(args.dataset))
+data.save_to_disk('saved_models/top3-rele-para-LlaMa2-{}'.format(args.dataset))
 

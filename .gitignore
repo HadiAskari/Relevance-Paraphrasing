@@ -6,3 +6,9 @@
 dump
 **/.env
 toy_test
+figures
+rebuttal_figures
+./cache
+**/data_NAACL/
+/MENLI
+MENLI

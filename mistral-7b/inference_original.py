@@ -1,7 +1,7 @@
 import torch
 from transformers import pipeline
-from langchain import PromptTemplate, LLMChain
-from langchain.llms import HuggingFacePipeline
+# from langchain import PromptTemplate, LLMChain
+# from langchain.llms import HuggingFacePipeline
 from datasets import load_dataset, DatasetDict, load_from_disk
 from tqdm.auto import tqdm
 import pickle as pkl
@@ -58,7 +58,7 @@ def generate_summary(pipe,prompt):
         prompt,
         do_sample=False,
         max_new_tokens=1000, 
-        temperature=0.0001, 
+        temperature=0.7, 
         top_k=50, 
         top_p=0.95,
         num_return_sequences=1,
@@ -80,7 +80,7 @@ if __name__=='__main__':
     model_name = "mistralai/Mistral-7B-Instruct-v0.1"
     model = AutoModelForCausalLM.from_pretrained(
             model_name,
-            load_in_4bit=True,
+            #load_in_4bit=True,
             quantization_config=bnb_config,
             torch_dtype=torch.bfloat16,
             device_map="auto",
@@ -131,7 +131,7 @@ if __name__=='__main__':
 
     # template for an instruction with input
   
-    collected=os.listdir('temp0/data_original/cnn')
+    collected=os.listdir('data_NAACL/run2/cnn')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -143,12 +143,12 @@ if __name__=='__main__':
             continue
         
         elif count==8018:
-            with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/cnn/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(cnn,f)
             count+=1
             
         elif article==' ':
-            with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/cnn/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -158,7 +158,7 @@ if __name__=='__main__':
             res=generate_summary(pipe,prompt)    
             # print(res)
             cnn.append(res)
-            with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/cnn/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(cnn,f)
             count+=1
 
@@ -188,7 +188,7 @@ if __name__=='__main__':
 
 
 
-    collected=os.listdir('temp0/data_original/xsum')
+    collected=os.listdir('data_NAACL/run2/xsum')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -200,12 +200,12 @@ if __name__=='__main__':
             continue
         
         elif count==8018:
-            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/xsum/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(xsum,f)
             count+=1
         
         elif article==' ':
-            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/xsum/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -214,7 +214,7 @@ if __name__=='__main__':
             prompt=prompt_rest(article)
             res=generate_summary(pipe,prompt)    
             xsum.append(res)
-            with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/xsum/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(xsum,f)
             count+=1
 
@@ -245,7 +245,7 @@ if __name__=='__main__':
     
 
 
-    collected=os.listdir('temp0/data_original/news')
+    collected=os.listdir('data_NAACL/run2/news')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -257,12 +257,12 @@ if __name__=='__main__':
             continue
         
         elif count==8018:
-            with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/news/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(news,f)
             count+=1
             
         elif article==' ':
-            with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/news/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -270,7 +270,7 @@ if __name__=='__main__':
             prompt=prompt_rest(article)
             res=generate_summary(pipe,prompt)    
             news.append(res)
-            with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/news/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(news,f)
             count+=1
 
@@ -311,7 +311,7 @@ if __name__=='__main__':
     data=data.select(random_indices)
 
 
-    collected=os.listdir('temp0/data_original/reddit')
+    collected=os.listdir('data_NAACL/run2/reddit')
     count=0
 
     for article in tqdm(data[article_key]):
@@ -323,11 +323,11 @@ if __name__=='__main__':
             continue
         
         elif count==8018:
-            with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/reddit/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(reddit,f)
             count+=1
         elif article==' ':
-            with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/reddit/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump([' '],f)
             count+=1
             continue
@@ -335,6 +335,6 @@ if __name__=='__main__':
             prompt=prompt_rest(article)
             res=generate_summary(pipe,prompt)    
             reddit.append(res)
-            with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+            with open('data_NAACL/run2/reddit/{}.pkl'.format(count), 'wb') as f:
                 pkl.dump(reddit,f)
             count+=1

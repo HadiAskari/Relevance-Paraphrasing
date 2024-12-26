@@ -14,17 +14,50 @@ import os
 # Dataset names
 cnn_ds = datasets.load_dataset("cnn_dailymail", "3.0.0")
 cnn_ds = cnn_ds['test']
+### For 10% sample
+
+random.seed(42)
+ten_percent=int(len(cnn_ds)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(cnn_ds)), ten_percent)
+random_indices.sort()
+# random_indices
+cnn_ds=cnn_ds.select(random_indices)
 
 xsum_ds = datasets.load_dataset("xsum")    
 xsum_ds = xsum_ds['test']
 
+random.seed(42)
+ten_percent=int(len(xsum_ds)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(xsum_ds)), ten_percent)
+random_indices.sort()
+# random_indices
+xsum_ds=xsum_ds.select(random_indices)
+
 news_ds = datasets.load_dataset("argilla/news-summary")
 news_ds = news_ds['train']
+
+random.seed(42)
+ten_percent=int(len(news_ds)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(news_ds)), ten_percent)
+random_indices.sort()
+# random_indices
+news_ds=news_ds.select(random_indices)
 
 reddit_ds = datasets.load_dataset("reddit_tifu", "long")
 train_testvalid = reddit_ds['train'].train_test_split(test_size=0.2, seed=42)
 test_valid = train_testvalid['test'].train_test_split(test_size=0.5, seed=42)
 reddit_ds = test_valid['test']
+
+random.seed(42)
+ten_percent=int(len(reddit_ds)*0.115)
+# print(ten_percent)
+random_indices = random.sample(range(len(reddit_ds)), ten_percent)
+random_indices.sort()
+# random_indices
+reddit_ds=reddit_ds.select(random_indices)
 
 
 # Article and summary keys
@@ -65,18 +98,18 @@ def read_summaries(path):
     return out
 
 
-origSummaryPath = '../dolly-v2/data_original/'
+origSummaryPath = '../mistral-7b/data_NAACL/run1/'
 cnn_sum_orig = read_summaries(origSummaryPath+'cnn.pkl')
-xsum_sum_orig = read_summaries(origSummaryPath+'xsum_capped_random.pkl')
-news_sum_orig = read_summaries(origSummaryPath+'news_capped_random.pkl')
-reddit_sum_orig = read_summaries(origSummaryPath+'reddit_capped_random.pkl')
+xsum_sum_orig = read_summaries(origSummaryPath+'xsum.pkl')
+news_sum_orig = read_summaries(origSummaryPath+'news.pkl')
+reddit_sum_orig = read_summaries(origSummaryPath+'reddit.pkl')
 
 
-paraSummaryPath = '../dolly-v2/data_paraphrase/'
+paraSummaryPath = '../mistral-7b/data_NAACL/run2/'
 cnn_sum_para = read_summaries(paraSummaryPath+'cnn.pkl')
-xsum_sum_para = read_summaries(paraSummaryPath+'xsum_capped_random.pkl')
-news_sum_para = read_summaries(paraSummaryPath+'news_capped_random.pkl')
-reddit_sum_para = read_summaries(paraSummaryPath+'reddit_capped_random.pkl')
+xsum_sum_para = read_summaries(paraSummaryPath+'xsum.pkl')
+news_sum_para = read_summaries(paraSummaryPath+'news.pkl')
+reddit_sum_para = read_summaries(paraSummaryPath+'reddit.pkl')
 
 
 ###############################################
@@ -108,17 +141,17 @@ def createPrompts(ds, ds_key, sum_orig, sum_para):
         summaryKey = ds_keys[ds_key][1]
     
     # Only select 10% of the articles to rate
-    random.seed(42)
-    list_size = len(ds)
-    num_true = int(list_size * 0.115)
-    skip = [False] * num_true + [True] * (list_size - num_true)
-    random.shuffle(skip)
+    # random.seed(42)
+    # list_size = len(ds)
+    # num_true = int(list_size * 0.115)
+    # skip = [False] * num_true + [True] * (list_size - num_true)
+    # random.shuffle(skip)
 
     idx = []
     prompts = []
     for i in range(len(ds)):
-        if skip[i]:
-            continue
+        # if skip[i]:
+        #     continue
 
         if (sum_para[i].strip() == '') or (sum_orig[i].strip() == ''):
             continue
@@ -130,7 +163,7 @@ def createPrompts(ds, ds_key, sum_orig, sum_para):
         else:
             summary = ds[i]['prediction']['text']
             
-        prompt = ratePromptGood(article, summary)
+        prompt = ratePromptGood(i,article, summary)
         prompts.append(prompt)
         prompt = ratePromptGood(i,article, sum_orig[i])
         prompts.append(prompt)
@@ -142,26 +175,26 @@ def createPrompts(ds, ds_key, sum_orig, sum_para):
 
 cnn_idx, cnn_prompts = createPrompts(cnn_ds, 'cnn_ds', cnn_sum_orig, cnn_sum_para)
 # print(cnn_prompts[0:3])
-with open('dolly_cnn_idx.txt', 'w') as f:
+with open('mistral_cnn_idx.txt', 'w') as f:
     f.write('\n'.join(cnn_idx))
-with open('dolly_cnn_prompts.txt', 'w') as f:
+with open('mistral_cnn_prompts.txt', 'w') as f:
     f.write('\n'.join(cnn_prompts))
 xsum_idx, xsum_prompts = createPrompts(xsum_ds, 'xsum_ds', xsum_sum_orig, xsum_sum_para)
-with open('dolly_xsum_idx.txt', 'w') as f:
+with open('mistral_xsum_idx.txt', 'w') as f:
     f.write('\n'.join(xsum_idx))
-with open('dolly_xsum_prompts.txt', 'w') as f:
+with open('mistral_xsum_prompts.txt', 'w') as f:
     f.write('\n'.join(xsum_prompts))
 # print(xsum_prompts[0:3])
 news_idx, news_prompts = createPrompts(news_ds, 'news_ds', news_sum_orig, news_sum_para)
-with open('dolly_news_idx.txt', 'w') as f:
+with open('mistral_news_idx.txt', 'w') as f:
     f.write('\n'.join(news_idx))
-with open('dolly_news_prompts.txt', 'w') as f:
+with open('mistral_news_prompts.txt', 'w') as f:
     f.write('\n'.join(news_prompts))
 # print(news_prompts[0:3])
 reddit_idx, reddit_prompts = createPrompts(reddit_ds, 'reddit_ds', reddit_sum_orig, reddit_sum_para)
-with open('dolly_reddit_idx.txt', 'w') as f:
+with open('mistral_reddit_idx.txt', 'w') as f:
     f.write('\n'.join(reddit_idx))
-with open('dolly_reddit_prompts.txt', 'w') as f:
+with open('mistral_reddit_prompts.txt', 'w') as f:
     f.write('\n'.join(reddit_prompts))
 print(reddit_prompts[0:3])
 
@@ -175,12 +208,12 @@ def ask_chatgpt(idx, prompts, outFilePath):
     """
     client = OpenAI(
         # This is the default and can be omitted
-        api_key="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"
+        api_key="sk-proj-ytd0znrkPJrGvJTReBagT3BlbkFJSmKmf2v9too5HhoZX7m7" #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"
     )
     
     print(len(prompts))
 
-    for i in tqdm(range(len(prompts))):
+    for i in tqdm(range(len(idx))):
         prompt = prompts[i]
         ans = client.chat.completions.create(
             messages=[
@@ -198,7 +231,7 @@ def ask_chatgpt(idx, prompts, outFilePath):
         with open(outFilePath, 'a') as f:
             f.write(ans+'\n')
 
-ask_chatgpt(cnn_idx, cnn_prompts, 'dolly_cnn_responses.txt')
-ask_chatgpt(xsum_idx, xsum_prompts, 'dolly_xsum_responses.txt')
-ask_chatgpt(news_idx, news_prompts, 'dolly_news_responses.txt')
-ask_chatgpt(reddit_idx, reddit_prompts, 'dolly_reddit_responses.txt')
+ask_chatgpt(cnn_idx, cnn_prompts, 'mistral_cnn_responses.txt')
+ask_chatgpt(xsum_idx, xsum_prompts, 'mistral_xsum_responses.txt')
+ask_chatgpt(news_idx, news_prompts, 'mistral_news_responses.txt')
+ask_chatgpt(reddit_idx, reddit_prompts, 'mistral_reddit_responses.txt')

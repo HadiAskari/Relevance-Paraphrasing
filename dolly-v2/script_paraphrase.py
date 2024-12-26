@@ -429,6 +429,30 @@ bertscore=get_bertscore(data)
 
 results['Bertscore']=bertscore
 
+from MENLI.MENLI import MENLI
+
+def getMENLI(data):
+  scorer = MENLI(direction="avg", formula="e", src=False, nli_weight=0.3, combine_with="BERTScore-F", model="D")
+  res=[]
+  count=0
+  # refs and hyps in form of list of String
+  for cand, ref in tqdm(zip(data['highlights'],data['model_summaries'])):
+      count+=1
+      # if count>=20:
+      #     break
+      if len(cand)!=len(ref):
+          continue
+      if not cand or not ref:
+          continue
+      scores=scorer.score_all(srcs=[],refs=cand, hyps=ref) 
+
+      res.append(sum(scores)/len(scores))
+  
+  return (sum(res)/len(res))
+
+menli=getMENLI(data)
+results['MENLI']=menli
+
 # df=pd.DataFrame.from_dict(results)
 df=pd.DataFrame([results])
 

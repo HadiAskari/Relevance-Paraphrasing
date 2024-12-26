@@ -176,3 +176,136 @@ The summary covers the main topic and key points of the news article by mentioni
 997	70, 15, 10, 3, 2
 998	90, 5, 3, 1, 1
 998	50, 30, 10, 5, 5
+0	90, 5, 3, 1, 1
+0	95, 3, 1, 0, 1
+1	95, 3, 1, 0, 1
+1	90, 5, 3, 1, 1
+2	90, 5, 3, 1, 1
+2	90, 5, 3, 1, 1
+3	90, 5, 3, 1, 1
+3	95, 3, 1, 0, 1
+4	95, 3, 1, 0, 1
+4	10, 5, 2, 1, 1
+5	95, 3, 1, 0, 1
+5	95, 3, 1, 0, 1
+6	90, 5, 3, 1, 1
+6	95, 3, 1, 0, 1
+7	90, 5, 3, 1, 1
+7	90, 5, 3, 1, 1
+8	95, 3, 1, 0, 1
+
+The summary covers the main topic and key points of the news article in a clear and logical order. It accurately conveys Israel's disappointment at the decision to delay relocating the U.S. Embassy to Jerusalem and their hope for a future move. The only reason for not giving a perfect score is the lack of additional details or quotes from the article that could enhance the summary.
+8	95, 3, 1, 0, 1
+
+The summary covers the main topic and key points of the news article, presenting them in a clear and logical order. It accurately captures Israel's disappointment at the decision regarding the U.S. Embassy relocation. There is a very high likelihood that this summary would receive a score of 5. There is a small chance it could receive a score of 4 due to minor details or wording. The likelihood of receiving a score of 3 or lower is very low.
+9	90, 5, 3, 1, 1
+9	90, 5, 3, 1, 1
+10	90, 5, 3, 1, 1
+10	90, 5, 3, 1, 1
+11	90, 5, 3, 1, 1
+11	90, 5, 3, 1, 1
+12	90, 5, 3, 1, 1
+12	95, 3, 1, 0, 1
+13	95, 3, 1, 0, 1
+13	90, 5, 3, 1, 1
+14	95, 3, 1, 1, 0
+
+The summary covers the main topic and key points of the news article, presenting them in a clear and logical order. It accurately conveys the incident of a Dutchman wielding a knife being shot by military police at Amsterdam's Schiphol Airport and taken into custody. The only reason for not giving a perfect score is the lack of additional details mentioned in the news article, such as the suspect's previous violent incidents and the closure of the immediate area around the incident.
+14	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article, mentioning the incident involving a Dutchman wielding a knife at Amsterdam's Schiphol Airport and being shot by military police. However, it lacks details about the suspect's previous violent incidents and the closure of the immediate area around the incident. Overall, the summary is clear and logical but could provide more context.
+15	90, 5, 3, 1, 1
+15	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article, presenting them in a clear and logical order. It accurately captures the essence of the article by highlighting the suspension of operations due to the tragic events involving Telefonica SA employees in Guatemala. The summary effectively conveys the seriousness of the situation and the impact on the company's operations.
+16	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article, presenting them in a clear and logical order. It accurately captures the essence of the article by highlighting the suspension of operations due to the tragic events that occurred. There is a small chance of missing some minor details or context, hence the lower ratings for a score of 4 or below.
+16	90, 5, 3, 1, 1
+17	95, 3, 1, 0, 1
+17	95, 3, 1, 0, 1
+18	95, 3, 1, 0, 1
+18	95, 3, 1, 0, 1
+19	95, 3, 1, 0, 1
+19	90, 5, 3, 1, 1
+20	90, 5, 3, 1, 1
+20	90, 5, 3, 1, 1
+21	90, 5, 3, 1, 1
+21	95, 3, 1, 0, 1
+22	95, 3, 1, 0, 1
+22	90, 5, 3, 1, 1
+23	90, 5, 3, 1, 1
+23	90, 5, 3, 1, 1
+24	90, 5, 3, 1, 1
+24	95, 3, 1, 0, 1
+25	90, 5, 3, 1, 1
+25	90, 5, 3, 1, 1
+26	90, 5, 3, 1, 1
+26	90, 5, 3, 1, 1
+27	90, 5, 3, 1, 1
+27	90, 5, 3, 1, 1
+28	90, 5, 3, 1, 1
+28	90, 5, 3, 1, 1
+29	95, 3, 1, 0, 1
+29	95, 3, 1, 0, 1
+30	95, 3, 1, 0, 1
+30	95, 3, 1, 0, 1
+31	95, 3, 1, 0, 1
+31	90, 5, 3, 1, 1
+32	90, 5, 3, 1, 1
+32	95, 3, 1, 0, 1
+
+The summary covers the main topic of the news article, which is Senator Rand Paul discussing healthcare reform with President Donald Trump. However, it lacks key points such as Paul mentioning Trump's authority to create health associations and the potential benefits of allowing organizations to offer group health insurance plans. The summary is clear and logical but misses important details from the article.
+33	90, 5, 3, 1, 1
+33	90, 5, 3, 1, 1
+34	90, 5, 3, 1, 1
+34	90, 5, 3, 1, 1
+35	95, 3, 1, 0, 1
+35	95, 3, 1, 0, 1
+36	95, 3, 1, 0, 1
+36	90, 5, 3, 1, 1
+37	90, 5, 3, 1, 1
+37	90, 5, 3, 1, 1
+38	95, 3, 1, 0, 1
+38	95, 3, 1, 0, 1
+39	90, 5, 3, 1, 1
+39	95, 3, 1, 0, 1
+40	95, 3, 1, 0, 1
+40	90, 5, 3, 1, 1
+41	95, 3, 1, 0, 1
+41	95, 3, 1, 0, 1
+42	90, 5, 3, 1, 1
+42	90, 5, 3, 1, 1
+
+The summary covers the main topic of FBI Director James Comey's statement about not stepping down and his intention to serve his full term. It also briefly mentions his pushback against President Trump's wiretapping allegations. However, it does not include other key points from the article, such as Comey's plea for technology companies to enable access to encrypted data and the challenges law enforcement faces in investigations due to encryption. Overall, the summary is clear and logical but lacks some important details from the news article.
+43	95, 3, 1, 0, 1
+43	90, 5, 3, 1, 1
+44	95, 3, 1, 1, 0
+44	95, 3, 1, 1, 0
+45	90, 5, 3, 1, 1
+45	90, 5, 3, 1, 1
+
+The summary covers the main topic and key points of the news article, presenting them in a clear and logical order. It accurately captures Trump's support for the pipeline project near the North Dakota Indian reservation and the protests surrounding it. The only minor issue is that it doesn't mention the involvement of U.S. military veterans joining the activists in protesting the pipeline, which is a key point in the article.
+46	90, 5, 3, 1, 1
+46	90, 5, 3, 1, 1
+47	90, 5, 3, 1, 1
+47	90, 5, 3, 1, 1
+48	90, 5, 3, 1, 1
+48	90, 5, 3, 1, 1
+49	95, 3, 1, 0, 1
+49	90, 5, 3, 1, 1
+50	95, 3, 1, 0, 1
+50	95, 3, 1, 0, 1
+51	90, 5, 3, 1, 1
+51	95, 3, 1, 0, 1
+52	90, 5, 3, 1, 1
+52	90, 5, 3, 1, 1
+53	95, 3, 1, 0, 1
+53	95, 3, 1, 0, 1
+54	90, 5, 3, 1, 1
+54	95, 3, 1, 0, 1
+55	95, 3, 1, 0, 1
+55	90, 5, 3, 1, 1
+56	90, 5, 3, 1, 1
+56	90, 5, 3, 1, 1
+57	90, 5, 3, 1, 1

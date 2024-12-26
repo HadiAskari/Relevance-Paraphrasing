@@ -26,12 +26,12 @@ model_name = "databricks/dolly-v2-7b"
 
 
 
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_4bit=True,quantization_config=bnb_config)
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto",quantization_config=bnb_config)
 tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
 
-generate_text = pipeline(model="databricks/dolly-v2-7b", trust_remote_code=True, device_map="auto",return_full_text=True, do_sample=False,
+generate_text = pipeline(model="databricks/dolly-v2-7b", trust_remote_code=True, device_map="auto",return_full_text=False, do_sample=False,
         max_new_tokens=500, 
-        temperature=0.0001)
+        temperature=0.7)
 
 
 data = load_dataset("cnn_dailymail", '3.0.0')
@@ -53,17 +53,17 @@ data=data.select(random_indices)
     
 
 # template for an instruction with input
-prompt_with_context = PromptTemplate(
-    input_variables=["instruction", "context"],
-    template="{instruction}\n\nArticle:\n{context}")
+# prompt_with_context = PromptTemplate(
+#     input_variables=["instruction", "context"],
+#     template="{instruction}\n\nArticle:\n{context}")
 
-hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
-
-
-llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
+# hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 
-collected=os.listdir('temp0/data_original/cnn')
+# llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
+
+
+collected=os.listdir('data_NAACL/run2/cnn')
 count=0
 
 for article in tqdm(data[article_key]):
@@ -75,18 +75,18 @@ for article in tqdm(data[article_key]):
         continue
     
     elif count==8018:
-        with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+        with open('data_NAACL/run2/cnn/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(cnn,f)
         count+=1
         
     elif article==' ':
-        with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+        with open('data_NAACL/run2/cnn/{}.pkl'.format(count), 'wb') as f:
             pkl.dump([' '],f)
         count+=1
         continue
     else:    
-        cnn.append(llm_context_chain.predict(instruction="Generate a 3 sentence summary for the given article.", context=context).lstrip())
-        with open('temp0/data_original/cnn/{}.pkl'.format(count), 'wb') as f:
+        cnn.append(generate_text("Generate a 3 sentence summary for the given article in a numbered list format. Here is the article: \n Article: {}. \n Summary: ".format(context)))
+        with open('data_NAACL/run2/cnn/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(cnn,f)
         count+=1
 
@@ -107,17 +107,17 @@ random_indices.sort()
 data=data.select(random_indices)
     
 
-# template for an instruction with input
-prompt_with_context = PromptTemplate(
-    input_variables=["instruction", "context"],
-    template="{instruction}\n\nArticle:\n{context}")
+# # template for an instruction with input
+# prompt_with_context = PromptTemplate(
+#     input_variables=["instruction", "context"],
+#     template="{instruction}\n\nArticle:\n{context}")
 
-hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
+# hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 
-llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
+# llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-collected=os.listdir('temp0/data_original/xsum')
+collected=os.listdir('data_NAACL/run2/xsum')
 count=0
 
 for article in tqdm(data[article_key]):
@@ -129,19 +129,19 @@ for article in tqdm(data[article_key]):
         continue
     
     elif count==8018:
-        with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+        with open('data_NAACL/run2/xsum/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(xsum,f)
         count+=1
     
     elif article==' ':
-        with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+        with open('data_NAACL/run2/xsum/{}.pkl'.format(count), 'wb') as f:
             pkl.dump([' '],f)
         count+=1
         continue
     
     else:    
-        xsum.append(llm_context_chain.predict(instruction="Generate a 1 sentence summary for the given article.", context=context).lstrip())
-        with open('temp0/data_original/xsum/{}.pkl'.format(count), 'wb') as f:
+        xsum.append(generate_text("Generate a 1 sentence summary for the given article in a numbered list format. Here is the article: \n Article: {}. \n Summary: ".format(context)))
+        with open('data_NAACL/run2/xsum/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(xsum,f)
         count+=1
 
@@ -169,16 +169,16 @@ random_indices.sort()
 data=data.select(random_indices)
     
 
-prompt_with_context = PromptTemplate(
-    input_variables=["instruction", "context"],
-    template="{instruction}\n\nArticle:\n{context}")
+# prompt_with_context = PromptTemplate(
+#     input_variables=["instruction", "context"],
+#     template="{instruction}\n\nArticle:\n{context}")
 
-hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
+# hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 
-llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
+# llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-collected=os.listdir('temp0/data_original/news')
+collected=os.listdir('data_NAACL/run2/news')
 count=0
 
 for article in tqdm(data[article_key]):
@@ -190,18 +190,18 @@ for article in tqdm(data[article_key]):
         continue
     
     elif count==8018:
-        with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+        with open('data_NAACL/run2/news/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(news,f)
         count+=1
         
     elif article==' ':
-        with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+        with open('data_NAACL/run2/news/{}.pkl'.format(count), 'wb') as f:
             pkl.dump([' '],f)
         count+=1
         continue
     else:    
-        news.append(llm_context_chain.predict(instruction="Generate a 1 sentence summary for the given article.", context=context).lstrip())
-        with open('temp0/data_original/news/{}.pkl'.format(count), 'wb') as f:
+        news.append(generate_text("Generate a 1 sentence summary for the given article in a numbered list format. Here is the article: \n Article: {}. \n Summary: ".format(context)))
+        with open('data_NAACL/run2/news/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(news,f)
         count+=1
 
@@ -235,16 +235,16 @@ random_indices.sort()
 data=data.select(random_indices)
     
 
-prompt_with_context = PromptTemplate(
-    input_variables=["instruction", "context"],
-    template="{instruction}\n\nArticle:\n{context}")
+# prompt_with_context = PromptTemplate(
+#     input_variables=["instruction", "context"],
+#     template="{instruction}\n\nArticle:\n{context}")
 
-hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
+# hf_pipeline = HuggingFacePipeline(pipeline=generate_text)
 
 
-llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
+# llm_context_chain = LLMChain(llm=hf_pipeline, prompt=prompt_with_context)
 
-collected=os.listdir('temp0/data_original/reddit')
+collected=os.listdir('data_NAACL/run2/reddit')
 count=0
 
 for article in tqdm(data[article_key]):
@@ -256,16 +256,16 @@ for article in tqdm(data[article_key]):
         continue
     
     elif count==8018:
-        with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+        with open('data_NAACL/run2/reddit/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(reddit,f)
         count+=1
     elif article==' ':
-        with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+        with open('data_NAACL/run2/reddit/{}.pkl'.format(count), 'wb') as f:
             pkl.dump([' '],f)
         count+=1
         continue
     else:    
-        reddit.append(llm_context_chain.predict(instruction="Generate a 1 sentence summary for the given article.", context=context).lstrip())
-        with open('temp0/data_original/reddit/{}.pkl'.format(count), 'wb') as f:
+        reddit.append(generate_text("Generate a 1 sentence summary for the given article in a numbered list format. Here is the article: \n Article: {}. \n Summary: ".format(context)))
+        with open('data_NAACL/run2/reddit/{}.pkl'.format(count), 'wb') as f:
             pkl.dump(reddit,f)
         count+=1
